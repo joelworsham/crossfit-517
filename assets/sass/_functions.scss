@@ -1,0 +1,14 @@
+/*
+Extra functions.
+
+@since 0.1.0
+*/
+
+@mixin light-or-dark-text($color) {
+
+  @if lightness($color) < 50% {
+    color: $light-color;
+  } @else {
+    color: $dark-color;
+  }
+}

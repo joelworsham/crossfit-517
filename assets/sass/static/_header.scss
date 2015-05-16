@@ -1,0 +1,64 @@
+/*
+The static site header.
+
+@since 0.1.0
+*/
+
+@import "../settings";
+
+#site-header {
+
+  .top-nav {
+    background: lighten($dark-color, 5%);
+    color: $light-color;
+    text-align: right;
+    font-size: 0.8em;
+    padding: 0.5em 0;
+
+    .menu {
+      font-size: inherit;
+
+      .menu-item {
+        display: inline-block;
+        font-size: inherit;
+        margin: 0 0.5em;
+
+        a {
+          color: inherit;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .logo-container {
+    background: $dark-color url("assets/images/grunge-repeatable-1.png");
+    padding: 1em 0;
+    color: $light-color;
+
+    .logo {
+      max-height: 160px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    button {
+      margin: 0;
+    }
+
+    .address {
+      color: $medium-color;
+      font-style: italic;
+    }
+
+    .phone {
+      font-family: $header-font-family;
+      font-size: 3em;
+    }
+  }
+}

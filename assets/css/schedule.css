@@ -1,0 +1,9 @@
+.crossfit-schedule {
+  text-align: center; }
+  .crossfit-schedule .day {
+    float: left;
+    width: 14.284%; }
+  .crossfit-schedule .class {
+    height: 30px;
+    line-height: 30px; }
+/*# sourceMappingURL=schedule.css.map */
