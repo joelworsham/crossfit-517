@@ -16,6 +16,7 @@ Version: 0.1.0
 
 // Foundation
 // Here we control all of the various foundation components to use
+@import "../vendor/sass/foundation/components/pricing-tables";
 @import "../vendor/sass/foundation/components/visibility";
 @import "../vendor/sass/foundation/components/clearing";
 @import "../vendor/sass/foundation/components/grid";
@@ -28,6 +29,8 @@ Version: 0.1.0
 
 // Static
 @import "static/header";
+@import "static/sidebar";
+@import "static/site-content";
 @import "static/footer";
 
 // Templates
@@ -38,6 +41,9 @@ Version: 0.1.0
 
 // Shortcodes
 @import "shortcodes/social";
+
+// Widgets
+@import "widgets/wod";
 
 // Overrides
 @import "wp";

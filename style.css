@@ -185,7 +185,7 @@ code, kbd, pre, samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-button, input, optgroup, select, textarea {
+button, input[type="submit"], input, optgroup, select, textarea {
   color: inherit;
   /* 1 */
   font: inherit;
@@ -196,7 +196,7 @@ button, input, optgroup, select, textarea {
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
-button {
+button, input[type="submit"] {
   overflow: visible; }
 
 /**
@@ -205,7 +205,7 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-button, select {
+button, input[type="submit"], select {
   text-transform: none; }
 
 /**
@@ -215,7 +215,7 @@ button, select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-button, html input[type="button"], input[type="reset"], input[type="submit"] {
+button, input[type="submit"], html input[type="button"], input[type="reset"], input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
@@ -224,13 +224,13 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-button[disabled], html input[disabled] {
+button[disabled], input[disabled][type="submit"], html input[disabled] {
   cursor: default; }
 
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
@@ -451,6 +451,52 @@ textarea {
 
 select {
   width: 100%; }
+
+/* Pricing Tables */
+.pricing-table {
+  border: transparent;
+  margin-left: 0;
+  margin-bottom: 1.25rem; }
+  .pricing-table * {
+    list-style: none;
+    line-height: 1; }
+  .pricing-table .title {
+    background-color: #4d4d4d;
+    padding: 0.9375rem 1.25rem;
+    text-align: center;
+    color: #EEEEEE;
+    font-weight: normal;
+    font-size: 2em;
+    font-family: 'Diamante', sans-serif; }
+  .pricing-table .price {
+    background-color: #F6F6F6;
+    padding: 0.9375rem 1.25rem;
+    text-align: center;
+    color: #333333;
+    font-weight: normal;
+    font-size: 2rem;
+    font-family: 'Diamante', sans-serif; }
+  .pricing-table .description {
+    background-color: #FFFFFF;
+    padding: 0.9375rem;
+    text-align: center;
+    color: #777777;
+    font-size: 0.75rem;
+    font-weight: normal;
+    line-height: 1.4;
+    border-bottom: dotted 1px #DDDDDD; }
+  .pricing-table .bullet-item {
+    background-color: #FFFFFF;
+    padding: 0.9375rem;
+    text-align: center;
+    color: #333333;
+    font-size: 0.875rem;
+    font-weight: normal;
+    border-bottom: dotted 1px #DDDDDD; }
+  .pricing-table .cta-button {
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 1.25rem 1.25rem 0; }
 
 /* small displays */
 @media only screen {
@@ -897,7 +943,7 @@ th.hide-for-touch {
     display: table; }
   .row:after {
     clear: both; }
-  .row.collapse > .column, .row.collapse > .columns, body.home .home-nav .row.collapse > .menu-item {
+  .row.collapse > .column, .row.collapse > .columns, body.home #home-nav .row.collapse > .menu-item {
     padding-left: 0;
     padding-right: 0; }
   .row.collapse .row {
@@ -925,7 +971,7 @@ th.hide-for-touch {
       .row .row.collapse:after {
         clear: both; }
 
-.column, .columns, body.home .home-nav .menu-item {
+.column, .columns, body.home #home-nav .menu-item {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
   width: 100%;
@@ -1034,7 +1080,7 @@ th.hide-for-touch {
     position: relative;
     right: 91.6666666667%;
     left: auto; }
-  .column, .columns, body.home .home-nav .menu-item {
+  .column, .columns, body.home #home-nav .menu-item {
     position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
@@ -1043,7 +1089,7 @@ th.hide-for-touch {
     width: 8.3333333333%; }
   .small-2 {
     width: 16.6666666667%; }
-  .small-3, body.home .home-nav .menu-item {
+  .small-3, body.home #home-nav .menu-item {
     width: 25%; }
   .small-4 {
     width: 33.3333333333%; }
@@ -1093,27 +1139,27 @@ th.hide-for-touch {
     left: auto;
     right: auto;
     float: left; }
-  .column.small-centered, .columns.small-centered, body.home .home-nav .small-centered.menu-item {
+  .column.small-centered, .columns.small-centered, body.home #home-nav .small-centered.menu-item {
     margin-left: auto;
     margin-right: auto;
     float: none; }
-  .column.small-uncentered, .columns.small-uncentered, body.home .home-nav .small-uncentered.menu-item {
+  .column.small-uncentered, .columns.small-uncentered, body.home #home-nav .small-uncentered.menu-item {
     margin-left: 0;
     margin-right: 0;
     float: left; }
-  .column.small-centered:last-child, .columns.small-centered:last-child, body.home .home-nav .small-centered.menu-item:last-child {
+  .column.small-centered:last-child, .columns.small-centered:last-child, body.home #home-nav .small-centered.menu-item:last-child {
     float: none; }
-  .column.small-uncentered:last-child, .columns.small-uncentered:last-child, body.home .home-nav .small-uncentered.menu-item:last-child {
+  .column.small-uncentered:last-child, .columns.small-uncentered:last-child, body.home #home-nav .small-uncentered.menu-item:last-child {
     float: left; }
-  .column.small-uncentered.opposite, .columns.small-uncentered.opposite, body.home .home-nav .small-uncentered.opposite.menu-item {
+  .column.small-uncentered.opposite, .columns.small-uncentered.opposite, body.home #home-nav .small-uncentered.opposite.menu-item {
     float: right; }
-  .row.small-collapse > .column, .row.small-collapse > .columns, body.home .home-nav .row.small-collapse > .menu-item {
+  .row.small-collapse > .column, .row.small-collapse > .columns, body.home #home-nav .row.small-collapse > .menu-item {
     padding-left: 0;
     padding-right: 0; }
   .row.small-collapse .row {
     margin-left: 0;
     margin-right: 0; }
-  .row.small-uncollapse > .column, .row.small-uncollapse > .columns, body.home .home-nav .row.small-uncollapse > .menu-item {
+  .row.small-uncollapse > .column, .row.small-uncollapse > .columns, body.home #home-nav .row.small-uncollapse > .menu-item {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left; } }
@@ -1215,7 +1261,7 @@ th.hide-for-touch {
     position: relative;
     right: 91.6666666667%;
     left: auto; }
-  .column, .columns, body.home .home-nav .menu-item {
+  .column, .columns, body.home #home-nav .menu-item {
     position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
@@ -1274,27 +1320,27 @@ th.hide-for-touch {
     left: auto;
     right: auto;
     float: left; }
-  .column.medium-centered, .columns.medium-centered, body.home .home-nav .medium-centered.menu-item {
+  .column.medium-centered, .columns.medium-centered, body.home #home-nav .medium-centered.menu-item {
     margin-left: auto;
     margin-right: auto;
     float: none; }
-  .column.medium-uncentered, .columns.medium-uncentered, body.home .home-nav .medium-uncentered.menu-item {
+  .column.medium-uncentered, .columns.medium-uncentered, body.home #home-nav .medium-uncentered.menu-item {
     margin-left: 0;
     margin-right: 0;
     float: left; }
-  .column.medium-centered:last-child, .columns.medium-centered:last-child, body.home .home-nav .medium-centered.menu-item:last-child {
+  .column.medium-centered:last-child, .columns.medium-centered:last-child, body.home #home-nav .medium-centered.menu-item:last-child {
     float: none; }
-  .column.medium-uncentered:last-child, .columns.medium-uncentered:last-child, body.home .home-nav .medium-uncentered.menu-item:last-child {
+  .column.medium-uncentered:last-child, .columns.medium-uncentered:last-child, body.home #home-nav .medium-uncentered.menu-item:last-child {
     float: left; }
-  .column.medium-uncentered.opposite, .columns.medium-uncentered.opposite, body.home .home-nav .medium-uncentered.opposite.menu-item {
+  .column.medium-uncentered.opposite, .columns.medium-uncentered.opposite, body.home #home-nav .medium-uncentered.opposite.menu-item {
     float: right; }
-  .row.medium-collapse > .column, .row.medium-collapse > .columns, body.home .home-nav .row.medium-collapse > .menu-item {
+  .row.medium-collapse > .column, .row.medium-collapse > .columns, body.home #home-nav .row.medium-collapse > .menu-item {
     padding-left: 0;
     padding-right: 0; }
   .row.medium-collapse .row {
     margin-left: 0;
     margin-right: 0; }
-  .row.medium-uncollapse > .column, .row.medium-uncollapse > .columns, body.home .home-nav .row.medium-uncollapse > .menu-item {
+  .row.medium-uncollapse > .column, .row.medium-uncollapse > .columns, body.home #home-nav .row.medium-uncollapse > .menu-item {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left; }
@@ -1492,7 +1538,7 @@ th.hide-for-touch {
     position: relative;
     right: 91.6666666667%;
     left: auto; }
-  .column, .columns, body.home .home-nav .menu-item {
+  .column, .columns, body.home #home-nav .menu-item {
     position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
@@ -1551,27 +1597,27 @@ th.hide-for-touch {
     left: auto;
     right: auto;
     float: left; }
-  .column.large-centered, .columns.large-centered, body.home .home-nav .large-centered.menu-item {
+  .column.large-centered, .columns.large-centered, body.home #home-nav .large-centered.menu-item {
     margin-left: auto;
     margin-right: auto;
     float: none; }
-  .column.large-uncentered, .columns.large-uncentered, body.home .home-nav .large-uncentered.menu-item {
+  .column.large-uncentered, .columns.large-uncentered, body.home #home-nav .large-uncentered.menu-item {
     margin-left: 0;
     margin-right: 0;
     float: left; }
-  .column.large-centered:last-child, .columns.large-centered:last-child, body.home .home-nav .large-centered.menu-item:last-child {
+  .column.large-centered:last-child, .columns.large-centered:last-child, body.home #home-nav .large-centered.menu-item:last-child {
     float: none; }
-  .column.large-uncentered:last-child, .columns.large-uncentered:last-child, body.home .home-nav .large-uncentered.menu-item:last-child {
+  .column.large-uncentered:last-child, .columns.large-uncentered:last-child, body.home #home-nav .large-uncentered.menu-item:last-child {
     float: left; }
-  .column.large-uncentered.opposite, .columns.large-uncentered.opposite, body.home .home-nav .large-uncentered.opposite.menu-item {
+  .column.large-uncentered.opposite, .columns.large-uncentered.opposite, body.home #home-nav .large-uncentered.opposite.menu-item {
     float: right; }
-  .row.large-collapse > .column, .row.large-collapse > .columns, body.home .home-nav .row.large-collapse > .menu-item {
+  .row.large-collapse > .column, .row.large-collapse > .columns, body.home #home-nav .row.large-collapse > .menu-item {
     padding-left: 0;
     padding-right: 0; }
   .row.large-collapse .row {
     margin-left: 0;
     margin-right: 0; }
-  .row.large-uncollapse > .column, .row.large-uncollapse > .columns, body.home .home-nav .row.large-uncollapse > .menu-item {
+  .row.large-uncollapse > .column, .row.large-uncollapse > .columns, body.home #home-nav .row.large-uncollapse > .menu-item {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left; }
@@ -1672,7 +1718,7 @@ th.hide-for-touch {
     right: 91.6666666667%;
     left: auto; } }
 
-button, .button {
+button, input[type="submit"], .button {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
@@ -1696,167 +1742,167 @@ button, .button {
   color: #333333;
   -webkit-transition: background-color 300ms ease-out;
           transition: background-color 300ms ease-out; }
-  button:hover, button:focus, .button:hover, .button:focus {
+  button:hover, input[type="submit"]:hover, button:focus, input[type="submit"]:focus, .button:hover, .button:focus {
     background: #969696; }
-  button:hover, button:focus, .button:hover, .button:focus {
+  button:hover, input[type="submit"]:hover, button:focus, input[type="submit"]:focus, .button:hover, .button:focus {
     color: #333333; }
-  button.secondary, .button.secondary {
+  button.secondary, input.secondary[type="submit"], .button.secondary {
     background: #f8abad;
     border-color: #f25e61;
     color: #333333; }
-    button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
+    button.secondary:hover, input.secondary[type="submit"]:hover, button.secondary:focus, input.secondary[type="submit"]:focus, .button.secondary:hover, .button.secondary:focus {
       background: #f25e61; }
-    button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
+    button.secondary:hover, input.secondary[type="submit"]:hover, button.secondary:focus, input.secondary[type="submit"]:focus, .button.secondary:hover, .button.secondary:focus {
       color: #333333; }
-  button.success, .button.success {
+  button.success, input.success[type="submit"], .button.success {
     background: #43AC6A;
     border-color: #368a55;
     color: #333333; }
-    button.success:hover, button.success:focus, .button.success:hover, .button.success:focus {
+    button.success:hover, input.success[type="submit"]:hover, button.success:focus, input.success[type="submit"]:focus, .button.success:hover, .button.success:focus {
       background: #368a55; }
-    button.success:hover, button.success:focus, .button.success:hover, .button.success:focus {
+    button.success:hover, input.success[type="submit"]:hover, button.success:focus, input.success[type="submit"]:focus, .button.success:hover, .button.success:focus {
       color: #333333; }
-  button.alert, .button.alert {
+  button.alert, input.alert[type="submit"], .button.alert {
     background: #f04124;
     border-color: #cf2a0e;
     color: #333333; }
-    button.alert:hover, button.alert:focus, .button.alert:hover, .button.alert:focus {
+    button.alert:hover, input.alert[type="submit"]:hover, button.alert:focus, input.alert[type="submit"]:focus, .button.alert:hover, .button.alert:focus {
       background: #cf2a0e; }
-    button.alert:hover, button.alert:focus, .button.alert:hover, .button.alert:focus {
+    button.alert:hover, input.alert[type="submit"]:hover, button.alert:focus, input.alert[type="submit"]:focus, .button.alert:hover, .button.alert:focus {
       color: #333333; }
-  button.warning, .button.warning {
+  button.warning, input.warning[type="submit"], .button.warning {
     background: #f08a24;
     border-color: #cf6e0e;
     color: #333333; }
-    button.warning:hover, button.warning:focus, .button.warning:hover, .button.warning:focus {
+    button.warning:hover, input.warning[type="submit"]:hover, button.warning:focus, input.warning[type="submit"]:focus, .button.warning:hover, .button.warning:focus {
       background: #cf6e0e; }
-    button.warning:hover, button.warning:focus, .button.warning:hover, .button.warning:focus {
+    button.warning:hover, input.warning[type="submit"]:hover, button.warning:focus, input.warning[type="submit"]:focus, .button.warning:hover, .button.warning:focus {
       color: #333333; }
-  button.info, .button.info {
+  button.info, input.info[type="submit"], .button.info {
     background: #a0d3e8;
     border-color: #61b6d9;
     color: #333333; }
-    button.info:hover, button.info:focus, .button.info:hover, .button.info:focus {
+    button.info:hover, input.info[type="submit"]:hover, button.info:focus, input.info[type="submit"]:focus, .button.info:hover, .button.info:focus {
       background: #61b6d9; }
-    button.info:hover, button.info:focus, .button.info:hover, .button.info:focus {
+    button.info:hover, input.info[type="submit"]:hover, button.info:focus, input.info[type="submit"]:focus, .button.info:hover, .button.info:focus {
       color: #333333; }
-  button.large, .button.large {
+  button.large, input[type="submit"], .button.large, input.button[type="submit"] {
     padding-top: 0.75rem;
     padding-right: 1.5rem;
     padding-bottom: 0.8125rem;
     padding-left: 1.5rem;
     font-size: 1.25rem; }
-  button.small, .button.small {
+  button.small, input.small[type="submit"], .button.small {
     padding-top: 0.375rem;
     padding-right: 0.75rem;
     padding-bottom: 0.4375rem;
     padding-left: 0.75rem;
     font-size: 0.8125rem; }
-  button.tiny, .button.tiny {
+  button.tiny, input.tiny[type="submit"], .button.tiny {
     padding-top: 0.25rem;
     padding-right: 0.5rem;
     padding-bottom: 0.3125rem;
     padding-left: 0.5rem;
     font-size: 0.6875rem; }
-  button.expand, .button.expand {
+  button.expand, input.expand[type="submit"], .button.expand {
     padding-right: 0;
     padding-left: 0;
     width: 100%; }
-  button.left-align, .button.left-align {
+  button.left-align, input.left-align[type="submit"], .button.left-align {
     text-align: left;
     text-indent: 0.75rem; }
-  button.right-align, .button.right-align {
+  button.right-align, input.right-align[type="submit"], .button.right-align {
     text-align: right;
     padding-right: 0.75rem; }
-  button.radius, .button.radius {
+  button.radius, input[type="submit"], .button.radius, input.button[type="submit"] {
     border-radius: 3px; }
-  button.round, .button.round {
+  button.round, input.round[type="submit"], .button.round {
     border-radius: 1000px; }
-  button.disabled, button[disabled], .button.disabled, .button[disabled] {
+  button.disabled, input.disabled[type="submit"], button[disabled], input[disabled][type="submit"], .button.disabled, .button[disabled] {
     background: #bbb;
     border-color: #969696;
     color: #333333;
     cursor: default;
     opacity: 0.7;
     box-shadow: none; }
-    button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
+    button.disabled:hover, input.disabled[type="submit"]:hover, button.disabled:focus, input.disabled[type="submit"]:focus, button[disabled]:hover, input[disabled][type="submit"]:hover, button[disabled]:focus, input[disabled][type="submit"]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
       background: #969696; }
-    button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
+    button.disabled:hover, input.disabled[type="submit"]:hover, button.disabled:focus, input.disabled[type="submit"]:focus, button[disabled]:hover, input[disabled][type="submit"]:hover, button[disabled]:focus, input[disabled][type="submit"]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
       color: #333333; }
-    button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
+    button.disabled:hover, input.disabled[type="submit"]:hover, button.disabled:focus, input.disabled[type="submit"]:focus, button[disabled]:hover, input[disabled][type="submit"]:hover, button[disabled]:focus, input[disabled][type="submit"]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
       background: #bbb; }
-    button.disabled.secondary, button[disabled].secondary, .button.disabled.secondary, .button[disabled].secondary {
+    button.disabled.secondary, input.disabled.secondary[type="submit"], button[disabled].secondary, input[disabled].secondary[type="submit"], .button.disabled.secondary, .button[disabled].secondary {
       background: #f8abad;
       border-color: #f25e61;
       color: #333333;
       cursor: default;
       opacity: 0.7;
       box-shadow: none; }
-      button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
+      button.disabled.secondary:hover, input.disabled.secondary[type="submit"]:hover, button.disabled.secondary:focus, input.disabled.secondary[type="submit"]:focus, button[disabled].secondary:hover, input[disabled].secondary[type="submit"]:hover, button[disabled].secondary:focus, input[disabled].secondary[type="submit"]:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
         background: #f25e61; }
-      button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
+      button.disabled.secondary:hover, input.disabled.secondary[type="submit"]:hover, button.disabled.secondary:focus, input.disabled.secondary[type="submit"]:focus, button[disabled].secondary:hover, input[disabled].secondary[type="submit"]:hover, button[disabled].secondary:focus, input[disabled].secondary[type="submit"]:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
         color: #333333; }
-      button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
+      button.disabled.secondary:hover, input.disabled.secondary[type="submit"]:hover, button.disabled.secondary:focus, input.disabled.secondary[type="submit"]:focus, button[disabled].secondary:hover, input[disabled].secondary[type="submit"]:hover, button[disabled].secondary:focus, input[disabled].secondary[type="submit"]:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
         background: #f8abad; }
-    button.disabled.success, button[disabled].success, .button.disabled.success, .button[disabled].success {
+    button.disabled.success, input.disabled.success[type="submit"], button[disabled].success, input[disabled].success[type="submit"], .button.disabled.success, .button[disabled].success {
       background: #43AC6A;
       border-color: #368a55;
       color: #333333;
       cursor: default;
       opacity: 0.7;
       box-shadow: none; }
-      button.disabled.success:hover, button.disabled.success:focus, button[disabled].success:hover, button[disabled].success:focus, .button.disabled.success:hover, .button.disabled.success:focus, .button[disabled].success:hover, .button[disabled].success:focus {
+      button.disabled.success:hover, input.disabled.success[type="submit"]:hover, button.disabled.success:focus, input.disabled.success[type="submit"]:focus, button[disabled].success:hover, input[disabled].success[type="submit"]:hover, button[disabled].success:focus, input[disabled].success[type="submit"]:focus, .button.disabled.success:hover, .button.disabled.success:focus, .button[disabled].success:hover, .button[disabled].success:focus {
         background: #368a55; }
-      button.disabled.success:hover, button.disabled.success:focus, button[disabled].success:hover, button[disabled].success:focus, .button.disabled.success:hover, .button.disabled.success:focus, .button[disabled].success:hover, .button[disabled].success:focus {
+      button.disabled.success:hover, input.disabled.success[type="submit"]:hover, button.disabled.success:focus, input.disabled.success[type="submit"]:focus, button[disabled].success:hover, input[disabled].success[type="submit"]:hover, button[disabled].success:focus, input[disabled].success[type="submit"]:focus, .button.disabled.success:hover, .button.disabled.success:focus, .button[disabled].success:hover, .button[disabled].success:focus {
         color: #333333; }
-      button.disabled.success:hover, button.disabled.success:focus, button[disabled].success:hover, button[disabled].success:focus, .button.disabled.success:hover, .button.disabled.success:focus, .button[disabled].success:hover, .button[disabled].success:focus {
+      button.disabled.success:hover, input.disabled.success[type="submit"]:hover, button.disabled.success:focus, input.disabled.success[type="submit"]:focus, button[disabled].success:hover, input[disabled].success[type="submit"]:hover, button[disabled].success:focus, input[disabled].success[type="submit"]:focus, .button.disabled.success:hover, .button.disabled.success:focus, .button[disabled].success:hover, .button[disabled].success:focus {
         background: #43AC6A; }
-    button.disabled.alert, button[disabled].alert, .button.disabled.alert, .button[disabled].alert {
+    button.disabled.alert, input.disabled.alert[type="submit"], button[disabled].alert, input[disabled].alert[type="submit"], .button.disabled.alert, .button[disabled].alert {
       background: #f04124;
       border-color: #cf2a0e;
       color: #333333;
       cursor: default;
       opacity: 0.7;
       box-shadow: none; }
-      button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert:hover, button[disabled].alert:focus, .button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus {
+      button.disabled.alert:hover, input.disabled.alert[type="submit"]:hover, button.disabled.alert:focus, input.disabled.alert[type="submit"]:focus, button[disabled].alert:hover, input[disabled].alert[type="submit"]:hover, button[disabled].alert:focus, input[disabled].alert[type="submit"]:focus, .button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus {
         background: #cf2a0e; }
-      button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert:hover, button[disabled].alert:focus, .button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus {
+      button.disabled.alert:hover, input.disabled.alert[type="submit"]:hover, button.disabled.alert:focus, input.disabled.alert[type="submit"]:focus, button[disabled].alert:hover, input[disabled].alert[type="submit"]:hover, button[disabled].alert:focus, input[disabled].alert[type="submit"]:focus, .button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus {
         color: #333333; }
-      button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert:hover, button[disabled].alert:focus, .button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus {
+      button.disabled.alert:hover, input.disabled.alert[type="submit"]:hover, button.disabled.alert:focus, input.disabled.alert[type="submit"]:focus, button[disabled].alert:hover, input[disabled].alert[type="submit"]:hover, button[disabled].alert:focus, input[disabled].alert[type="submit"]:focus, .button.disabled.alert:hover, .button.disabled.alert:focus, .button[disabled].alert:hover, .button[disabled].alert:focus {
         background: #f04124; }
-    button.disabled.warning, button[disabled].warning, .button.disabled.warning, .button[disabled].warning {
+    button.disabled.warning, input.disabled.warning[type="submit"], button[disabled].warning, input[disabled].warning[type="submit"], .button.disabled.warning, .button[disabled].warning {
       background: #f08a24;
       border-color: #cf6e0e;
       color: #333333;
       cursor: default;
       opacity: 0.7;
       box-shadow: none; }
-      button.disabled.warning:hover, button.disabled.warning:focus, button[disabled].warning:hover, button[disabled].warning:focus, .button.disabled.warning:hover, .button.disabled.warning:focus, .button[disabled].warning:hover, .button[disabled].warning:focus {
+      button.disabled.warning:hover, input.disabled.warning[type="submit"]:hover, button.disabled.warning:focus, input.disabled.warning[type="submit"]:focus, button[disabled].warning:hover, input[disabled].warning[type="submit"]:hover, button[disabled].warning:focus, input[disabled].warning[type="submit"]:focus, .button.disabled.warning:hover, .button.disabled.warning:focus, .button[disabled].warning:hover, .button[disabled].warning:focus {
         background: #cf6e0e; }
-      button.disabled.warning:hover, button.disabled.warning:focus, button[disabled].warning:hover, button[disabled].warning:focus, .button.disabled.warning:hover, .button.disabled.warning:focus, .button[disabled].warning:hover, .button[disabled].warning:focus {
+      button.disabled.warning:hover, input.disabled.warning[type="submit"]:hover, button.disabled.warning:focus, input.disabled.warning[type="submit"]:focus, button[disabled].warning:hover, input[disabled].warning[type="submit"]:hover, button[disabled].warning:focus, input[disabled].warning[type="submit"]:focus, .button.disabled.warning:hover, .button.disabled.warning:focus, .button[disabled].warning:hover, .button[disabled].warning:focus {
         color: #333333; }
-      button.disabled.warning:hover, button.disabled.warning:focus, button[disabled].warning:hover, button[disabled].warning:focus, .button.disabled.warning:hover, .button.disabled.warning:focus, .button[disabled].warning:hover, .button[disabled].warning:focus {
+      button.disabled.warning:hover, input.disabled.warning[type="submit"]:hover, button.disabled.warning:focus, input.disabled.warning[type="submit"]:focus, button[disabled].warning:hover, input[disabled].warning[type="submit"]:hover, button[disabled].warning:focus, input[disabled].warning[type="submit"]:focus, .button.disabled.warning:hover, .button.disabled.warning:focus, .button[disabled].warning:hover, .button[disabled].warning:focus {
         background: #f08a24; }
-    button.disabled.info, button[disabled].info, .button.disabled.info, .button[disabled].info {
+    button.disabled.info, input.disabled.info[type="submit"], button[disabled].info, input[disabled].info[type="submit"], .button.disabled.info, .button[disabled].info {
       background: #a0d3e8;
       border-color: #61b6d9;
       color: #333333;
       cursor: default;
       opacity: 0.7;
       box-shadow: none; }
-      button.disabled.info:hover, button.disabled.info:focus, button[disabled].info:hover, button[disabled].info:focus, .button.disabled.info:hover, .button.disabled.info:focus, .button[disabled].info:hover, .button[disabled].info:focus {
+      button.disabled.info:hover, input.disabled.info[type="submit"]:hover, button.disabled.info:focus, input.disabled.info[type="submit"]:focus, button[disabled].info:hover, input[disabled].info[type="submit"]:hover, button[disabled].info:focus, input[disabled].info[type="submit"]:focus, .button.disabled.info:hover, .button.disabled.info:focus, .button[disabled].info:hover, .button[disabled].info:focus {
         background: #61b6d9; }
-      button.disabled.info:hover, button.disabled.info:focus, button[disabled].info:hover, button[disabled].info:focus, .button.disabled.info:hover, .button.disabled.info:focus, .button[disabled].info:hover, .button[disabled].info:focus {
+      button.disabled.info:hover, input.disabled.info[type="submit"]:hover, button.disabled.info:focus, input.disabled.info[type="submit"]:focus, button[disabled].info:hover, input[disabled].info[type="submit"]:hover, button[disabled].info:focus, input[disabled].info[type="submit"]:focus, .button.disabled.info:hover, .button.disabled.info:focus, .button[disabled].info:hover, .button[disabled].info:focus {
         color: #333333; }
-      button.disabled.info:hover, button.disabled.info:focus, button[disabled].info:hover, button[disabled].info:focus, .button.disabled.info:hover, .button.disabled.info:focus, .button[disabled].info:hover, .button[disabled].info:focus {
+      button.disabled.info:hover, input.disabled.info[type="submit"]:hover, button.disabled.info:focus, input.disabled.info[type="submit"]:focus, button[disabled].info:hover, input[disabled].info[type="submit"]:hover, button[disabled].info:focus, input[disabled].info[type="submit"]:focus, .button.disabled.info:hover, .button.disabled.info:focus, .button[disabled].info:hover, .button[disabled].info:focus {
         background: #a0d3e8; }
 
-button::-moz-focus-inner {
+button::-moz-focus-inner, input[type="submit"]::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
 @media only screen and (min-width:40.063em) {
-  button, .button {
+  button, input[type="submit"], .button {
     display: inline-block; } }
 
 .text-left {
@@ -2247,18 +2293,18 @@ form {
 /* Using forms within rows, we need to set some defaults */
 form .row .row {
   margin: 0 -0.5rem; }
-  form .row .row .column, form .row .row .columns, form .row .row body.home .home-nav .menu-item, body.home .home-nav form .row .row .menu-item {
+  form .row .row .column, form .row .row .columns, form .row .row body.home #home-nav .menu-item, body.home #home-nav form .row .row .menu-item {
     padding: 0 0.5rem; }
   form .row .row.collapse {
     margin: 0; }
-    form .row .row.collapse .column, form .row .row.collapse .columns, form .row .row.collapse body.home .home-nav .menu-item, body.home .home-nav form .row .row.collapse .menu-item {
+    form .row .row.collapse .column, form .row .row.collapse .columns, form .row .row.collapse body.home #home-nav .menu-item, body.home #home-nav form .row .row.collapse .menu-item {
       padding: 0; }
     form .row .row.collapse input {
       -webkit-border-bottom-right-radius: 0;
       -webkit-border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-top-right-radius: 0; }
-form .row input.column, form .row input.columns, form .row body.home .home-nav input.menu-item, body.home .home-nav form .row input.menu-item, form .row textarea.column, form .row textarea.columns, form .row body.home .home-nav textarea.menu-item, body.home .home-nav form .row textarea.menu-item {
+form .row input.column, form .row input.columns, form .row body.home #home-nav input.menu-item, body.home #home-nav form .row input.menu-item, form .row textarea.column, form .row textarea.columns, form .row body.home #home-nav textarea.menu-item, body.home #home-nav form .row textarea.menu-item {
   padding-left: 0.5rem; }
 
 /* Label Styles */
@@ -2314,14 +2360,14 @@ label {
   text-align: center;
   border: none; }
 
-.prefix.button.radius {
+.prefix.button.radius, input.prefix.button[type="submit"] {
   border-radius: 0;
   -webkit-border-bottom-left-radius: 3px;
   -webkit-border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px; }
 
-.postfix.button.radius {
+.postfix.button.radius, input.postfix.button[type="submit"] {
   border-radius: 0;
   -webkit-border-bottom-right-radius: 3px;
   -webkit-border-top-right-radius: 3px;
@@ -2388,7 +2434,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   input[type="text"][disabled], input[type="text"][readonly], fieldset[disabled] input[type="text"], input[type="password"][disabled], input[type="password"][readonly], fieldset[disabled] input[type="password"], input[type="date"][disabled], input[type="date"][readonly], fieldset[disabled] input[type="date"], input[type="datetime"][disabled], input[type="datetime"][readonly], fieldset[disabled] input[type="datetime"], input[type="datetime-local"][disabled], input[type="datetime-local"][readonly], fieldset[disabled] input[type="datetime-local"], input[type="month"][disabled], input[type="month"][readonly], fieldset[disabled] input[type="month"], input[type="week"][disabled], input[type="week"][readonly], fieldset[disabled] input[type="week"], input[type="email"][disabled], input[type="email"][readonly], fieldset[disabled] input[type="email"], input[type="number"][disabled], input[type="number"][readonly], fieldset[disabled] input[type="number"], input[type="search"][disabled], input[type="search"][readonly], fieldset[disabled] input[type="search"], input[type="tel"][disabled], input[type="tel"][readonly], fieldset[disabled] input[type="tel"], input[type="time"][disabled], input[type="time"][readonly], fieldset[disabled] input[type="time"], input[type="url"][disabled], input[type="url"][readonly], fieldset[disabled] input[type="url"], input[type="color"][disabled], input[type="color"][readonly], fieldset[disabled] input[type="color"], textarea[disabled], textarea[readonly], fieldset[disabled] textarea {
     background-color: #DDDDDD;
     cursor: default; }
-  input[type="text"].radius, input[type="password"].radius, input[type="date"].radius, input[type="datetime"].radius, input[type="datetime-local"].radius, input[type="month"].radius, input[type="week"].radius, input[type="email"].radius, input[type="number"].radius, input[type="search"].radius, input[type="tel"].radius, input[type="time"].radius, input[type="url"].radius, input[type="color"].radius, textarea.radius {
+  input[type="text"].radius, input[type="text"][type="submit"], input[type="password"].radius, input[type="password"][type="submit"], input[type="date"].radius, input[type="date"][type="submit"], input[type="datetime"].radius, input[type="datetime"][type="submit"], input[type="datetime-local"].radius, input[type="datetime-local"][type="submit"], input[type="month"].radius, input[type="month"][type="submit"], input[type="week"].radius, input[type="week"][type="submit"], input[type="email"].radius, input[type="email"][type="submit"], input[type="number"].radius, input[type="number"][type="submit"], input[type="search"].radius, input[type="search"][type="submit"], input[type="tel"].radius, input[type="tel"][type="submit"], input[type="time"].radius, input[type="time"][type="submit"], input[type="url"].radius, input[type="url"][type="submit"], input[type="color"].radius, input[type="color"][type="submit"], textarea.radius {
     border-radius: 3px; }
 
 form .row .prefix-radius.row.collapse input, form .row .prefix-radius.row.collapse textarea, form .row .prefix-radius.row.collapse select {
@@ -2640,10 +2686,10 @@ throughout this theme's SASS files.
 */
 #site-header .top-nav {
   background: #404040;
-  color: #DDDDDD;
   text-align: right;
   font-size: 0.8em;
-  padding: 0.5em 0; }
+  padding: 0.5em 0;
+  color: #bbb; }
   #site-header .top-nav .menu {
     font-size: inherit; }
     #site-header .top-nav .menu .menu-item {
@@ -2655,14 +2701,14 @@ throughout this theme's SASS files.
         #site-header .top-nav .menu .menu-item a:hover {
           color: #fff; }
 #site-header .logo-container {
-  background: #333333 url("assets/images/grunge-repeatable-1.png");
+  background: #222 url("assets/images/grunge-repeatable-1.png");
   padding: 1em 0;
   color: #DDDDDD; }
   #site-header .logo-container .logo {
-    max-height: 160px; }
+    max-height: 180px; }
   #site-header .logo-container p {
     margin: 0; }
-  #site-header .logo-container button {
+  #site-header .logo-container button, #site-header .logo-container input[type="submit"] {
     margin: 0; }
   #site-header .logo-container .address {
     color: #bbb;
@@ -2670,6 +2716,38 @@ throughout this theme's SASS files.
   #site-header .logo-container .phone {
     font-family: 'Diamante', sans-serif;
     font-size: 3em; }
+
+/*
+The static site header.
+
+@since 0.1.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+#site-sidebar {
+  border-left: 1px solid #4d4d4d; }
+  #site-sidebar .widget:not(:last-of-type) {
+    border-bottom: 1px solid #4d4d4d;
+    margin-bottom: 20px;
+    padding-bottom: 20px; }
+
+/*
+The static site header.
+
+@since 0.1.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+#site-content {
+  padding: 3em 0; }
 
 /*
 The static site footer.
@@ -2682,6 +2760,21 @@ throughout this theme's SASS files.
 
 @since 0.1.0
 */
+#site-footer {
+  background-color: #EE9236;
+  color: #fff;
+  padding-top: 3em; }
+  #site-footer a {
+    color: #fff; }
+    #site-footer a:hover {
+      color: #bbb; }
+  #site-footer .footer-bottom {
+    background-color: #000;
+    color: #bbb;
+    padding: 3em 0;
+    margin-top: 3em;
+    font-size: 0.8em; }
+
 /*
 Styles single.php.
 
@@ -2715,16 +2808,20 @@ throughout this theme's SASS files.
 
 @since 0.1.0
 */
-body.home .home-nav {
+body.home #site-content {
+  padding: 0; }
+body.home #home-nav {
   color: #EE9236;
   text-transform: uppercase;
   font-family: 'Diamante', sans-serif;
   font-size: 1.6em;
   padding: 0.5em 0;
-  background-color: #fff; }
-  body.home .home-nav .menu {
+  background-color: #fff;
+  box-shadow: 0 20px 20px -10px rgba(0, 0, 0, 0.5);
+  z-index: 100; }
+  body.home #home-nav .menu {
     font-size: inherit; }
-  body.home .home-nav .menu-item {
+  body.home #home-nav .menu-item {
     text-align: center;
     font-size: inherit;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); }
@@ -2737,7 +2834,8 @@ body.home .home-slider {
 body.home .action-buttons {
   font-size: 2em; }
   body.home .action-buttons .fa {
-    font-size: 2em; }
+    font-size: 3em;
+    margin-bottom: 0.2em; }
   body.home .action-buttons a {
     font-size: inherit; }
 body.home .home-section-title {
@@ -2747,6 +2845,10 @@ body.home .home-section-title {
   font-size: 3em; }
 body.home #wod {
   text-align: center; }
+body.home #pricing .pricing-table.highlighted .title {
+  background: #EE9236; }
+body.home .home-section > .row {
+  padding: 3em 0; }
 
 /*
 Styles shared among all templates.
@@ -2759,6 +2861,10 @@ throughout this theme's SASS files.
 
 @since 0.1.0
 */
+.page-content ul {
+  margin-left: 3em;
+  list-style: disc; }
+
 /*
 Social shortcodes.
 
@@ -2794,6 +2900,23 @@ throughout this theme's SASS files.
     background: #DC4A38; }
   [class*="social-icon-"][class*="youtube"] {
     background: #DD2C28; }
+
+/*
+WOD Widget.
+
+@since 0.1.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+.widget_crossfit_widget_wod .date {
+  font-size: 2em;
+  font-family: 'Diamante', sans-serif; }
+  .widget_crossfit_widget_wod .date .fa {
+    font-size: 1.5em; }
 
 /*
 This provides overrides for some WP stuff (not much at all).

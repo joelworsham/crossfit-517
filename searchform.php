@@ -2,7 +2,7 @@
 /**
  * The theme's search form.
  *
- * @since   0.1.0
+ * @since 0.1.0
  * @package CrossFit
  */
 
@@ -12,19 +12,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<form role="search" method="get" class="search-form" action="<?php bloginfo( 'url' ); ?>">
-
-	<div class="fields row">
-		<label class="search-field-label columns small-12 medium-8">
-			<span class="screen-reader-text">Search for:</span>
-			<input type="search" class="search-field" placeholder="Looking for something?" value="" name="s"
-			       title="Search for:">
-		</label>
-
-		<div class="columns small-12 medium-4">
-			<button class="button tiny">
-				Search
-			</button>
-		</div>
-	</div>
+<form class="site-search" action="<?php bloginfo( 'url' ); ?>" method="get">
+	<label>
+		<span class="screen-reader-text">Search</span>
+		<input type="text" class="s" name="s" value="<?php get_search_query(); ?>"
+		       placeholder="What are you looking for?"/>
+	</label>
 </form>

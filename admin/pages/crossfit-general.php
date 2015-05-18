@@ -15,7 +15,7 @@ add_action( 'admin_menu', function() {
 	add_options_page(
 		'CrossFit Settings',
 		'CrossFit Settings',
-		'manage_options',
+		'edit_posts',
 		'crossfit-settings',
 		'_crossfit_page_crossfit_settings_output'
 	);
@@ -34,4 +34,5 @@ add_action( 'admin_init', function() {
 	register_setting( 'crossfit-settings', '_crossfit_email' );
 	register_setting( 'crossfit-settings', '_crossfit_address' );
 	register_setting( 'crossfit-settings', '_crossfit_address_condensed' );
+	register_setting( 'crossfit-settings', '_crossfit_getting_started_page' );
 });

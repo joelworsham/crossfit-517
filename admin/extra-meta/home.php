@@ -22,6 +22,8 @@ function _crossfit_add_metaboxes_home() {
 		return;
 	}
 
+	remove_post_type_support( 'page', 'editor' );
+
 	add_meta_box(
 		'crossfit_mb_home_extra',
 		'Home Settings',
@@ -36,25 +38,47 @@ function _crossfit_mb_home_extra_callback() {
 
 	wp_nonce_field( __FILE__, 'crossfit_mb_home_extra_nonce' );
 
-	$get_started_post = get_post_meta( $post->ID, '_get_started_post', true );
-	?>
+	for ( $i = 1; $i < 4; $i ++ ) {
 
-	<p>
-		<label>
-			Getting Started Page
-			<br/>
-			<?php
-			wp_dropdown_pages( array(
-				'id' => '_get_started_post',
-				'name' => '_get_started_post',
-				'selected' => $get_started_post ? $get_started_post : 0,
-				'show_option_none' => '- Select a Post -',
-			));
-			?>
-		</label>
-	</p>
-
-<?php
+		$ptable_title   = get_post_meta( $post->ID, "_ptable{$i}_title", true );
+		$ptable_price   = get_post_meta( $post->ID, "_ptable{$i}_price", true );
+		$ptable_bullets = get_post_meta( $post->ID, "_ptable{$i}_bullets", true );
+		$ptable_highlighted = get_post_meta( $post->ID, "_ptable{$i}_highlighted", true );
+		?>
+		<h3>Pricing Table <?php echo $i; ?></h3>
+		<p>
+			<label>
+				Title
+				<br/>
+				<input type="text" class="regular-text" name="_ptable<?php echo $i; ?>_title"
+				       value="<?php echo $ptable_title; ?>"/>
+			</label>
+		</p>
+		<p>
+			<label>
+				Price
+				<br/>
+				<input type="text" class="regular-text" name="_ptable<?php echo $i; ?>_price"
+				       value="<?php echo $ptable_price; ?>"/>
+			</label>
+		</p>
+		<p>
+			<label>
+				Bullets
+				<br/>
+				<textarea name="_ptable<?php echo $i; ?>_bullets" style="height: 8em; width: 25em; max-width: 100%;"
+					><?php echo $ptable_bullets; ?></textarea>
+			</label>
+		</p>
+		<p>
+			<label>
+				Highighted
+				<input type="checkbox" name="_ptable<?php echo $i; ?>_highlighted"
+				       value="1" <?php checked( '1', $ptable_highlighted ); ?>/>
+			</label>
+		</p>
+	<?php
+	}
 }
 
 function _crossfit_save_metaboxes_home( $post_ID ) {
@@ -76,7 +100,18 @@ function _crossfit_save_metaboxes_home( $post_ID ) {
 	}
 
 	$options = array(
-		'_get_started_post',
+		'_ptable1_title',
+		'_ptable1_price',
+		'_ptable1_bullets',
+		'_ptable1_highlighted',
+		'_ptable2_title',
+		'_ptable2_price',
+		'_ptable2_bullets',
+		'_ptable2_highlighted',
+		'_ptable3_title',
+		'_ptable3_price',
+		'_ptable3_bullets',
+		'_ptable3_highlighted',
 	);
 
 	foreach ( $options as $option ) {

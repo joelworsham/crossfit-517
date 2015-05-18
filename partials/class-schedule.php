@@ -61,13 +61,30 @@ if ( $classes ) :
 
 			<?php
 			foreach ( $times as $time ) :
-				$class = $classes[ strtolower( $day ) ][ $time ];
+				$class = isset( $classes[ strtolower( $day ) ][ $time ] ) ? $classes[ strtolower( $day ) ][ $time ] : false;
 				?>
 				<div class="class <?php echo $class ? '' : 'blank'; echo $class['fire'] ? 'fire' : ''; ?>">
 
-					<?php echo is_admin() ? '<a href="' . get_edit_post_link( $class['ID'] ) . '">' : '' ; ?>
-					<?php echo $class ? date( 'g:iA', strtotime( $time ) ) : ''; ?>
-					<?php echo is_admin() ? '</a>' : ''; ?>
+					<?php
+
+					if ( $class && is_admin() ) {
+						?>
+						<a href="<?php echo get_delete_post_link( $class['ID'] ); ?>" onclick="return confirm('Delete class?');">
+							<?php
+							echo date( 'g:iA', strtotime( $time ) );
+							echo $class['fire'] ? '&nbsp;(fire)' : '';
+							echo '<span class="dashicons dashicons-trash"></span>';
+							?>
+						</a>
+						<?php
+					} elseif ( $class ) {
+
+						echo date( 'g:iA', strtotime( $time ) );
+						echo $class['fire'] ? '&nbsp;<span class="fa fa-fire"></span>' : '';
+					} else {
+						echo '&nbsp;';
+					}
+					?>
 				</div>
 			<?php endforeach; ?>
 		</div>

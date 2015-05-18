@@ -28,6 +28,12 @@ ul {
   list-style: none;
 }
 
+input[type="submit"] {
+  @extend button;
+  @extend .large;
+  @extend .radius;
+}
+
 // Select color
 ::selection {
   background: $primary-color;

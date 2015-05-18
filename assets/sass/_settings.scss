@@ -55,6 +55,13 @@ $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
 
 // Grid
 $row-width: rem-calc(1000);
+$price-title-bg: lighten($dark-color, 10%);
+$price-title-size: 2em;
+$price-title-font-family: $header-font-family;
+$price-money-font-family: $header-font-family;
+
+// Pricing tables
+$price-table-border: transparent;
 
 // Media query ranges
 $small-range: (0em, 40em);

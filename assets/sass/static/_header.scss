@@ -10,10 +10,10 @@ The static site header.
 
   .top-nav {
     background: lighten($dark-color, 5%);
-    color: $light-color;
     text-align: right;
     font-size: 0.8em;
     padding: 0.5em 0;
+    color: $medium-color;
 
     .menu {
       font-size: inherit;
@@ -35,12 +35,12 @@ The static site header.
   }
 
   .logo-container {
-    background: $dark-color url("assets/images/grunge-repeatable-1.png");
+    background: #222 url("assets/images/grunge-repeatable-1.png");
     padding: 1em 0;
     color: $light-color;
 
     .logo {
-      max-height: 160px;
+      max-height: 180px;
     }
 
     p {

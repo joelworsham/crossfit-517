@@ -5,3 +5,10 @@ Styles shared among all templates.
 */
 
 @import "../settings";
+
+.page-content {
+  ul {
+    margin-left: 3em;
+    list-style: disc;
+  }
+}

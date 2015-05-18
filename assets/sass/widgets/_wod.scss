@@ -1,0 +1,18 @@
+/*
+WOD Widget.
+
+@since 0.1.0
+*/
+
+@import "../settings";
+
+.widget_crossfit_widget_wod {
+  .date {
+    font-size: 2em;
+    font-family: $header-font-family;
+
+    .fa {
+      font-size: 1.5em;
+    }
+  }
+}

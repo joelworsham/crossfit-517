@@ -1,9 +1,41 @@
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
 .crossfit-schedule {
   text-align: center; }
   .crossfit-schedule .day {
     float: left;
     width: 14.284%; }
+    @media only screen and (max-width: 40em) {
+      .crossfit-schedule .day {
+        width: 100%; } }
+  .crossfit-schedule .day-name {
+    border-bottom: 2px solid gray; }
   .crossfit-schedule .class {
-    height: 30px;
-    line-height: 30px; }
+    border-bottom: 1px solid #4d4d4d;
+    padding: 1em 0;
+    white-space: nowrap; }
+    @media only screen and (max-width: 40em) {
+      .crossfit-schedule .class {
+        border: none; } }
+    .crossfit-schedule .class:hover .dashicons {
+      opacity: 1; }
+    .crossfit-schedule .class .dashicons {
+      font-size: inherit;
+      height: auto;
+      opacity: 0;
+      color: #f00; }
+    .crossfit-schedule .class:last-of-type {
+      border: none; }
+    .crossfit-schedule .class.fire {
+      color: #ea8484; }
+    @media only screen and (max-width: 40em) {
+      .crossfit-schedule .class.blank {
+        display: none; } }
+
+.fire-description {
+  color: #ea8484; }
 /*# sourceMappingURL=schedule.css.map */

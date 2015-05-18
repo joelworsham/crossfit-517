@@ -8,13 +8,19 @@ Styles page.php.
 
 body.home {
 
-  .home-nav {
+  #site-content {
+    padding: 0;
+  }
+
+  #home-nav {
     color: $primary-color;
     text-transform: uppercase;
     font-family: $header-font-family;
     font-size: 1.6em;
     padding: 0.5em 0;
     background-color: #fff;
+    box-shadow: 0 20px 20px -10px rgba(#000, 0.5);
+    z-index: 100;
 
     .menu {
       font-size: inherit;
@@ -41,7 +47,8 @@ body.home {
     font-size: 2em;
 
     .fa {
-      font-size: 2em;
+      font-size: 3em;
+      margin-bottom: 0.2em;
     }
 
     a {
@@ -62,9 +69,21 @@ body.home {
     .date {
       @extend h1;
     }
+  }
 
-    .content {
+  #pricing {
+    .pricing-table {
+      &.highlighted {
+        .title {
+          background: $primary-color;
+        }
+      }
+    }
+  }
 
+  .home-section {
+    > .row {
+      padding: 3em 0;
     }
   }
 }

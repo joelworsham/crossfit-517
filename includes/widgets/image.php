@@ -29,9 +29,9 @@ class CrossFit_Widget_Image extends WP_Widget {
 		// Build the widget
 		parent::__construct(
 			'crossfit_widget_image',
-			'Parallax Image',
+			'Image',
 			array(
-				'description' => 'Shows an image with a parallax effect.',
+				'description' => 'Shows an image.',
 			)
 		);
 	}
@@ -48,10 +48,9 @@ class CrossFit_Widget_Image extends WP_Widget {
 		$link = isset( $instance['link'] ) && ! empty( $instance['link'] ) ? $instance['link'] : false;
 
 		if ( $image_ID !== false ) {
-			?>
-			<div class="img-holder" data-image="<?php $image = wp_get_attachment_image_src( $image_ID, 'full' ); echo $image[0]; ?>"
-			     data-cover-ratio="0.4"></div>
-			<?php
+			echo $link ? "<a href=\"$link\">" : '';
+			echo wp_get_attachment_image( $image_ID );
+			echo $link ? '</a>' : '';
 		}
 
 		echo $args['after_widget'];

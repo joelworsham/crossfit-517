@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<div class="row">
 				<div class="columns small-12 medium-6">
-					<a href="<?php bloginfo( 'ur' ); ?>">
+					<a href="<?php bloginfo( 'url' ); ?>">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-header.png"
 						     class="logo" alt="crossfit 517"/>
 					</a>
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</p>
 
 					<p class="get-started">
-						<?php if ( $get_started_post = get_post_meta( get_the_ID(), '_get_started_post', true ) ) : ?>
+						<?php if ( $get_started_post = get_option( '_crossfit_getting_started_page' ) ) : ?>
 							<a href="<?php echo get_permalink( $get_started_post ); ?>" class="button radius large">
 								Get Started
 							</a>
@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</section>
 
 		<?php if ( is_front_page() ) : ?>
-			<nav class="home-nav">
+			<nav id="home-nav">
 				<?php
 				wp_nav_menu( array(
 					'theme_location' => 'home-menu',
@@ -88,3 +88,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif; ?>
 
 	</header>
+
+	<section id="site-content">

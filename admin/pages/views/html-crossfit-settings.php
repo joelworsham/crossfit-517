@@ -83,6 +83,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 
+			<tr valign="top">
+				<th scope="row">
+					<label for="_crossfit_getting_started_page">
+						Getting Started Page
+					</label>
+				</th>
+				<td>
+					<?php
+					$get_started_post = get_option( '_crossfit_getting_started_page' );
+					wp_dropdown_pages( array(
+						'id' => '_crossfit_getting_started_page',
+						'name' => '_crossfit_getting_started_page',
+						'selected' => $get_started_post ? $get_started_post : 0,
+						'show_option_none' => '- Select a Post -',
+					));
+					?>
+				</td>
+			</tr>
+
 		</table>
 
 		<?php submit_button(); ?>

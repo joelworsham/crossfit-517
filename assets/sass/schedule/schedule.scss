@@ -1,16 +1,59 @@
+@import "../settings";
+
 .crossfit-schedule {
   text-align: center;
 
   .day {
     float: left;
     width: 14.284%;
+
+    @media #{$small-only} {
+      width: 100%;
+    }
+  }
+
+  .day-name {
+    border-bottom: 2px solid lighten($dark-color, 30%);
   }
 
   .class {
-    height: 30px;
-    line-height: 30px;
+    border-bottom: 1px solid lighten($dark-color, 10%);
+    padding: 1em 0;
+    white-space: nowrap;
+
+    @media #{$small-only} {
+      border: none;
+    }
+
+    &:hover {
+      .dashicons {
+        opacity: 1;
+      }
+    }
+
+    .dashicons {
+      font-size: inherit;
+      height: auto;
+      opacity: 0;
+      color: #f00;
+    }
+
+    &:last-of-type {
+      border: none;
+    }
 
     &.fire {
+      color: mix(#f00, $light-color, 40);
+    }
+
+    &.blank {
+      @media #{$small-only} {
+        display: none;
+      }
     }
   }
+}
+
+.fire-description {
+  color: mix(#f00, $light-color, 40);
 }

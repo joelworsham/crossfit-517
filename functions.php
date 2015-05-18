@@ -190,6 +190,8 @@ add_action( 'wp_enqueue_scripts', function () {
 add_action( 'after_setup_theme', function () {
 	register_nav_menu( 'home-menu', 'Home' );
 	register_nav_menu( 'top-menu', 'Top' );
+	register_nav_menu( 'footer-left', 'Footer Left' );
+	register_nav_menu( 'footer-right', 'Footer Right' );
 } );
 
 /**
@@ -207,9 +209,32 @@ add_action( 'widgets_init', function () {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	));
+
+	// Footer Left
+	register_sidebar( array(
+		'name' => 'Footer Left',
+		'id' => 'footer-left',
+		'description' => 'Displays on the left side of the footer.',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+		'before_widget' => '',
+		'after_widget' => '',
+	));
+
+	// Footer Right
+	register_sidebar( array(
+		'name' => 'Footer Right',
+		'id' => 'footer-right',
+		'description' => 'Displays on the right side of the footer.',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+		'before_widget' => '',
+		'after_widget' => '',
+	));
 } );
 
 // Extra files
+require_once __DIR__ . '/includes/theme-functions.php';
 require_once __DIR__ . '/admin/admin.php';
 
 // Include shortcodes
@@ -220,3 +245,5 @@ require_once __DIR__ . '/includes/shortcodes/contact.php';
 // Include widgets
 require_once __DIR__ . '/includes/widgets/image.php';
 require_once __DIR__ . '/includes/widgets/text-icon.php';
+require_once __DIR__ . '/includes/widgets/wod.php';
+require_once __DIR__ . '/includes/widgets/facebook.php';
