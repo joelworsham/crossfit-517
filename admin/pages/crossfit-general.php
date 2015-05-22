@@ -35,4 +35,5 @@ add_action( 'admin_init', function() {
 	register_setting( 'crossfit-settings', '_crossfit_address' );
 	register_setting( 'crossfit-settings', '_crossfit_address_condensed' );
 	register_setting( 'crossfit-settings', '_crossfit_getting_started_page' );
+	register_setting( 'crossfit-settings', '_crossfit_home_slider' );
 });

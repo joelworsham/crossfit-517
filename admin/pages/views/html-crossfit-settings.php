@@ -29,6 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</th>
 				<td>
 					<input type="text" name="_crossfit_phone" id="_crossfit_phone"
+					       class="regular-text"
 					       value="<?php echo esc_attr( get_option('_crossfit_phone') ); ?>" />
 
 					<p class="description">
@@ -45,6 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</th>
 				<td>
 					<input type="text" name="_crossfit_email" id="_crossfit_email"
+					       class="regular-text"
 					       value="<?php echo esc_attr( get_option('_crossfit_email') ); ?>" />
 				</td>
 			</tr>
@@ -58,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</th>
 				<td>
 					<input type="text" name="_crossfit_address_condensed" id="_crossfit_address_condensed"
-					       style="max-width: 100%; width: 500px;"
+					       class="regular-text"
 					       value="<?php echo get_option('_crossfit_address_condensed'); ?>" />
 				</td>
 			</tr>
@@ -85,6 +87,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<tr valign="top">
 				<th scope="row">
+					<label for="_crossfit_home_slider">
+						Home Slider ID
+					</label>
+				</th>
+				<td>
+					<input type="text" name="_crossfit_home_slider" id="_crossfit_home_slider"
+					       class="regular-text"
+					       value="<?php echo get_option( '_crossfit_home_slider' ); ?>"/>
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<th scope="row">
 					<label for="_crossfit_getting_started_page">
 						Getting Started Page
 					</label>
@@ -93,11 +108,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php
 					$get_started_post = get_option( '_crossfit_getting_started_page' );
 					wp_dropdown_pages( array(
-						'id' => '_crossfit_getting_started_page',
-						'name' => '_crossfit_getting_started_page',
-						'selected' => $get_started_post ? $get_started_post : 0,
+						'id'               => '_crossfit_getting_started_page',
+						'name'             => '_crossfit_getting_started_page',
+						'selected'         => $get_started_post ? $get_started_post : 0,
 						'show_option_none' => '- Select a Post -',
-					));
+					) );
 					?>
 				</td>
 			</tr>

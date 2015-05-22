@@ -64,7 +64,16 @@ body.home {
   }
 
   #wod {
-    text-align: center;
+    text-align: center !important;
+    font-size: 1.5em !important;
+
+    table {
+      margin: 0 auto;
+    }
+
+    * {
+      text-align: center !important;
+    }
 
     .date {
       @extend h1;

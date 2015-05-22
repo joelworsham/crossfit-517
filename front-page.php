@@ -18,9 +18,9 @@ add_action( 'wp_enqueue_scripts', function () {
 get_header();
 ?>
 
-<?php if ( function_exists( 'layerslider' ) ) : ?>
+<?php if ( function_exists( 'layerslider' ) && $slider = get_option( '_crossfit_home_slider' ) ) : ?>
 	<section class="home-slider">
-		<?php layerslider( 1 ) ?>
+		<?php layerslider( $slider ); ?>
 	</section>
 <?php endif; ?>
 

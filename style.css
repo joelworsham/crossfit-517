@@ -2844,7 +2844,12 @@ body.home .home-section-title {
   color: #fff;
   font-size: 3em; }
 body.home #wod {
-  text-align: center; }
+  text-align: center !important;
+  font-size: 1.5em !important; }
+  body.home #wod table {
+    margin: 0 auto; }
+  body.home #wod * {
+    text-align: center !important; }
 body.home #pricing .pricing-table.highlighted .title {
   background: #EE9236; }
 body.home .home-section > .row {

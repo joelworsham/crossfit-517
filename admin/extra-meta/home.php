@@ -11,8 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-add_action( 'add_meta_boxes', '_crossfit_add_metaboxes_home' );
-add_action( 'save_post', '_crossfit_save_metaboxes_home' );
+add_action( 'add_meta_boxes', '_crossfit_add_metaboxes_home', 1 );
+add_action( 'save_post', '_crossfit_save_metaboxes_home', 1 );
 
 function _crossfit_add_metaboxes_home() {
 
@@ -28,7 +28,9 @@ function _crossfit_add_metaboxes_home() {
 		'crossfit_mb_home_extra',
 		'Home Settings',
 		'_crossfit_mb_home_extra_callback',
-		'page'
+		'page',
+		'normal',
+		'high'
 	);
 }
 
