@@ -44,3 +44,14 @@ add_action( 'manage_wod_posts_custom_column', function ( $column_name, $post_ID 
 		echo $post->post_content;
 	}
 }, 10, 2);
+
+function tinymce_paste_as_text( $init ) {
+
+	if ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'wod' ) {
+		$init['paste_as_text'] = true;
+
+		return $init;
+	}
+}
+
+add_filter( 'tiny_mce_before_init', 'tinymce_paste_as_text' );
