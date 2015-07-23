@@ -47,11 +47,13 @@ add_action( 'manage_wod_posts_custom_column', function ( $column_name, $post_ID 
 
 function tinymce_paste_as_text( $init ) {
 
-	if ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'wod' ) {
-		$init['paste_as_text'] = true;
+	global $post;
 
-		return $init;
+	if ( get_post_type( $post ) == 'wod' ) {
+		$init['paste_as_text'] = true;
 	}
+
+	return $init;
 }
 
 add_filter( 'tiny_mce_before_init', 'tinymce_paste_as_text' );

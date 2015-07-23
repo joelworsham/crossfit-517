@@ -91,7 +91,7 @@ if ( $wod ) :
 				</p>
 
 				<div class="content">
-					<?php echo $wod->post_content; ?>
+					<?php echo wpautop( $wod->post_content ); ?>
 				</div>
 			</div>
 		</div>
