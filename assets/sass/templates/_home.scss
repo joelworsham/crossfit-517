@@ -20,8 +20,14 @@ body.home {
     padding: 0.5em 0;
     background-color: #fff;
     box-shadow: 0 20px 20px -10px rgba(#000, 0.5);
-
     z-index: 100;
+
+    @media #{$small-only} {
+      position: static !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+    }
 
     .menu {
       font-size: inherit;
