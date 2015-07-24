@@ -78,11 +78,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php if ( is_front_page() ) : ?>
 			<nav id="home-nav">
 				<ul class="menu row expand">
-					<li class="menu-item columns small-12 medium-6">WOD</li>
-					<li class="menu-item columns small-12 medium-6">Schedule</li>
-					<li class="menu-item columns small-12 medium-6">What is CrossFit?</li>
-					<li class="menu-item columns small-12 medium-6">Pricing</li>
-					<li class="menu-item columns small-12 medium-6">517 Athletic Academy</li>
+					<li class="menu-item columns small-12 medium-6">
+						<a href="#wod">
+							WOD
+						</a>
+					</li>
+					<li class="menu-item columns small-12 medium-6">
+						<a href="#schedule">
+							Schedule
+						</a>
+					</li>
+					<li class="menu-item columns small-12 medium-6">
+						<a href="#about">
+							What is CrossFit?
+						</a>
+					</li>
+					<li class="menu-item columns small-12 medium-6">
+						<a href="#pricing">
+							Pricing
+						</a>
+					</li>
+					<li class="menu-item columns small-12 medium-6">
+						<a href="#">
+							517 Athletic Academy
+						</a>
+					</li>
 				</ul>
 			</nav>
 		<?php endif; ?>

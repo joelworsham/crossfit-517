@@ -24,60 +24,62 @@ get_header();
 	</section>
 <?php endif; ?>
 
-	<section class="home-section action-buttons row">
-		<div class="columns small-12 medium-4">
-			<h3>
-				<a href="#wod" class="button radius expand">
-					<span class="fa fa-cog"></span><br/>WOD
-				</a>
-			</h3>
+	<section class="home-section action-buttons">
+		<div class="row">
+			<div class="columns small-12 medium-4">
+				<h3>
+					<a href="#wod" class="button radius expand">
+						<span class="fa fa-cog"></span><br/>WOD
+					</a>
+				</h3>
 
-			<p>
-				Every day at CrossFit 517, we have a different workout. View it here and get ready for it!
-			</p>
-		</div>
+				<p>
+					Every day at CrossFit 517, we have a different workout. View it here and get ready for it!
+				</p>
+			</div>
 
-		<div class="columns small-12 medium-4">
-			<h3>
-				<a href="#schedule" class="button radius expand">
-					<span class="fa fa-calendar"></span><br/>Schedule
-				</a>
-			</h3>
+			<div class="columns small-12 medium-4">
+				<h3>
+					<a href="#schedule" class="button radius expand">
+						<span class="fa fa-calendar"></span><br/>Schedule
+					</a>
+				</h3>
 
-			<p>
-				We have specific class times each day. Find out when they are and sign up here.
-			</p>
-		</div>
+				<p>
+					We have specific class times each day. Find out when they are and sign up here.
+				</p>
+			</div>
 
-		<?php
-		$get_started_post = get_post_meta( get_the_ID(), '_get_started_post', true );
-		$get_started_url  = $get_started_post ? get_permalink( $get_started_post ) : '#';
-		?>
-		<div class="columns small-12 medium-4">
-			<h3>
-				<a href="<?php echo $get_started_url; ?>" class="button radius expand">
-					<span class="fa fa-check"></span><br/>Get Started
-				</a>
-			</h3>
+			<?php
+			$get_started_post = get_post_meta( get_the_ID(), '_get_started_post', true );
+			$get_started_url  = $get_started_post ? get_permalink( $get_started_post ) : '#';
+			?>
+			<div class="columns small-12 medium-4">
+				<h3>
+					<a href="<?php echo $get_started_url; ?>" class="button radius expand">
+						<span class="fa fa-check"></span><br/>Get Started
+					</a>
+				</h3>
 
-			<p>
-				Ready to take your life to the next level? Learn about what it takes to be a part of our family.
-			</p>
+				<p>
+					Ready to take your life to the next level? Learn about what it takes to be a part of our family.
+				</p>
+			</div>
 		</div>
 	</section>
 
 
 <?php
 $wod = get_posts( array(
-	'post_type' => 'wod',
+	'post_type'   => 'wod',
 	'numberposts' => 1,
-));
+) );
 
 /** @var $wod WP_Post */
 $wod = $wod ? $wod[0] : false;
 
 if ( $wod ) :
-?>
+	?>
 	<section id="wod" class="home-section">
 
 		<h2 class="home-section-title">
@@ -187,7 +189,7 @@ if ( $wod ) :
 							foreach ( $bullets as $bullet ) {
 								?>
 								<li class="bullet-item"><?php echo $bullet; ?></li>
-							<?php
+								<?php
 							}
 						}
 
