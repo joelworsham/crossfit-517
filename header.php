@@ -77,13 +77,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( is_front_page() ) : ?>
 			<nav id="home-nav">
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'home-menu',
-					'container_class' => false,
-					'menu_class' => 'menu row',
-				));
-				?>
+				<ul class="menu row expand">
+					<li class="menu-item columns small-12 medium-6">WOD</li>
+					<li class="menu-item columns small-12 medium-6">Schedule</li>
+					<li class="menu-item columns small-12 medium-6">What is CrossFit?</li>
+					<li class="menu-item columns small-12 medium-6">Pricing</li>
+					<li class="menu-item columns small-12 medium-6">517 Athletic Academy</li>
+				</ul>
 			</nav>
 		<?php endif; ?>
 

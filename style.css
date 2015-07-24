@@ -943,7 +943,7 @@ th.hide-for-touch {
     display: table; }
   .row:after {
     clear: both; }
-  .row.collapse > .column, .row.collapse > .columns, body.home #home-nav .row.collapse > .menu-item {
+  .row.collapse > .column, .row.collapse > .columns {
     padding-left: 0;
     padding-right: 0; }
   .row.collapse .row {
@@ -971,7 +971,7 @@ th.hide-for-touch {
       .row .row.collapse:after {
         clear: both; }
 
-.column, .columns, body.home #home-nav .menu-item {
+.column, .columns {
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
   width: 100%;
@@ -1080,7 +1080,7 @@ th.hide-for-touch {
     position: relative;
     right: 91.6666666667%;
     left: auto; }
-  .column, .columns, body.home #home-nav .menu-item {
+  .column, .columns {
     position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
@@ -1089,7 +1089,7 @@ th.hide-for-touch {
     width: 8.3333333333%; }
   .small-2 {
     width: 16.6666666667%; }
-  .small-3, body.home #home-nav .menu-item {
+  .small-3 {
     width: 25%; }
   .small-4 {
     width: 33.3333333333%; }
@@ -1139,27 +1139,27 @@ th.hide-for-touch {
     left: auto;
     right: auto;
     float: left; }
-  .column.small-centered, .columns.small-centered, body.home #home-nav .small-centered.menu-item {
+  .column.small-centered, .columns.small-centered {
     margin-left: auto;
     margin-right: auto;
     float: none; }
-  .column.small-uncentered, .columns.small-uncentered, body.home #home-nav .small-uncentered.menu-item {
+  .column.small-uncentered, .columns.small-uncentered {
     margin-left: 0;
     margin-right: 0;
     float: left; }
-  .column.small-centered:last-child, .columns.small-centered:last-child, body.home #home-nav .small-centered.menu-item:last-child {
+  .column.small-centered:last-child, .columns.small-centered:last-child {
     float: none; }
-  .column.small-uncentered:last-child, .columns.small-uncentered:last-child, body.home #home-nav .small-uncentered.menu-item:last-child {
+  .column.small-uncentered:last-child, .columns.small-uncentered:last-child {
     float: left; }
-  .column.small-uncentered.opposite, .columns.small-uncentered.opposite, body.home #home-nav .small-uncentered.opposite.menu-item {
+  .column.small-uncentered.opposite, .columns.small-uncentered.opposite {
     float: right; }
-  .row.small-collapse > .column, .row.small-collapse > .columns, body.home #home-nav .row.small-collapse > .menu-item {
+  .row.small-collapse > .column, .row.small-collapse > .columns {
     padding-left: 0;
     padding-right: 0; }
   .row.small-collapse .row {
     margin-left: 0;
     margin-right: 0; }
-  .row.small-uncollapse > .column, .row.small-uncollapse > .columns, body.home #home-nav .row.small-uncollapse > .menu-item {
+  .row.small-uncollapse > .column, .row.small-uncollapse > .columns {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left; } }
@@ -1261,7 +1261,7 @@ th.hide-for-touch {
     position: relative;
     right: 91.6666666667%;
     left: auto; }
-  .column, .columns, body.home #home-nav .menu-item {
+  .column, .columns {
     position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
@@ -1320,27 +1320,27 @@ th.hide-for-touch {
     left: auto;
     right: auto;
     float: left; }
-  .column.medium-centered, .columns.medium-centered, body.home #home-nav .medium-centered.menu-item {
+  .column.medium-centered, .columns.medium-centered {
     margin-left: auto;
     margin-right: auto;
     float: none; }
-  .column.medium-uncentered, .columns.medium-uncentered, body.home #home-nav .medium-uncentered.menu-item {
+  .column.medium-uncentered, .columns.medium-uncentered {
     margin-left: 0;
     margin-right: 0;
     float: left; }
-  .column.medium-centered:last-child, .columns.medium-centered:last-child, body.home #home-nav .medium-centered.menu-item:last-child {
+  .column.medium-centered:last-child, .columns.medium-centered:last-child {
     float: none; }
-  .column.medium-uncentered:last-child, .columns.medium-uncentered:last-child, body.home #home-nav .medium-uncentered.menu-item:last-child {
+  .column.medium-uncentered:last-child, .columns.medium-uncentered:last-child {
     float: left; }
-  .column.medium-uncentered.opposite, .columns.medium-uncentered.opposite, body.home #home-nav .medium-uncentered.opposite.menu-item {
+  .column.medium-uncentered.opposite, .columns.medium-uncentered.opposite {
     float: right; }
-  .row.medium-collapse > .column, .row.medium-collapse > .columns, body.home #home-nav .row.medium-collapse > .menu-item {
+  .row.medium-collapse > .column, .row.medium-collapse > .columns {
     padding-left: 0;
     padding-right: 0; }
   .row.medium-collapse .row {
     margin-left: 0;
     margin-right: 0; }
-  .row.medium-uncollapse > .column, .row.medium-uncollapse > .columns, body.home #home-nav .row.medium-uncollapse > .menu-item {
+  .row.medium-uncollapse > .column, .row.medium-uncollapse > .columns {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left; }
@@ -1538,7 +1538,7 @@ th.hide-for-touch {
     position: relative;
     right: 91.6666666667%;
     left: auto; }
-  .column, .columns, body.home #home-nav .menu-item {
+  .column, .columns {
     position: relative;
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
@@ -1597,27 +1597,27 @@ th.hide-for-touch {
     left: auto;
     right: auto;
     float: left; }
-  .column.large-centered, .columns.large-centered, body.home #home-nav .large-centered.menu-item {
+  .column.large-centered, .columns.large-centered {
     margin-left: auto;
     margin-right: auto;
     float: none; }
-  .column.large-uncentered, .columns.large-uncentered, body.home #home-nav .large-uncentered.menu-item {
+  .column.large-uncentered, .columns.large-uncentered {
     margin-left: 0;
     margin-right: 0;
     float: left; }
-  .column.large-centered:last-child, .columns.large-centered:last-child, body.home #home-nav .large-centered.menu-item:last-child {
+  .column.large-centered:last-child, .columns.large-centered:last-child {
     float: none; }
-  .column.large-uncentered:last-child, .columns.large-uncentered:last-child, body.home #home-nav .large-uncentered.menu-item:last-child {
+  .column.large-uncentered:last-child, .columns.large-uncentered:last-child {
     float: left; }
-  .column.large-uncentered.opposite, .columns.large-uncentered.opposite, body.home #home-nav .large-uncentered.opposite.menu-item {
+  .column.large-uncentered.opposite, .columns.large-uncentered.opposite {
     float: right; }
-  .row.large-collapse > .column, .row.large-collapse > .columns, body.home #home-nav .row.large-collapse > .menu-item {
+  .row.large-collapse > .column, .row.large-collapse > .columns {
     padding-left: 0;
     padding-right: 0; }
   .row.large-collapse .row {
     margin-left: 0;
     margin-right: 0; }
-  .row.large-uncollapse > .column, .row.large-uncollapse > .columns, body.home #home-nav .row.large-uncollapse > .menu-item {
+  .row.large-uncollapse > .column, .row.large-uncollapse > .columns {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left; }
@@ -2293,18 +2293,18 @@ form {
 /* Using forms within rows, we need to set some defaults */
 form .row .row {
   margin: 0 -0.5rem; }
-  form .row .row .column, form .row .row .columns, form .row .row body.home #home-nav .menu-item, body.home #home-nav form .row .row .menu-item {
+  form .row .row .column, form .row .row .columns {
     padding: 0 0.5rem; }
   form .row .row.collapse {
     margin: 0; }
-    form .row .row.collapse .column, form .row .row.collapse .columns, form .row .row.collapse body.home #home-nav .menu-item, body.home #home-nav form .row .row.collapse .menu-item {
+    form .row .row.collapse .column, form .row .row.collapse .columns {
       padding: 0; }
     form .row .row.collapse input {
       -webkit-border-bottom-right-radius: 0;
       -webkit-border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-top-right-radius: 0; }
-form .row input.column, form .row input.columns, form .row body.home #home-nav input.menu-item, body.home #home-nav form .row input.menu-item, form .row textarea.column, form .row textarea.columns, form .row body.home #home-nav textarea.menu-item, body.home #home-nav form .row textarea.menu-item {
+form .row input.column, form .row input.columns, form .row textarea.column, form .row textarea.columns {
   padding-left: 0.5rem; }
 
 /* Label Styles */
@@ -2825,6 +2825,9 @@ body.home #home-nav {
     text-align: center;
     font-size: inherit;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); }
+    @media only screen and (min-width:64.063em) {
+      body.home #home-nav .menu-item {
+        width: 20%; } }
 body.home .home-slider {
   width: 100%;
   border: 1px solid #000;
