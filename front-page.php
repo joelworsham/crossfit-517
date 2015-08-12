@@ -51,7 +51,7 @@ get_header();
 			</div>
 
 			<?php
-			$get_started_post = get_post_meta( get_the_ID(), '_get_started_post', true );
+			$get_started_post = get_option( '_crossfit_getting_started_page', -1 );
 			$get_started_url  = $get_started_post ? get_permalink( $get_started_post ) : '#';
 			?>
 			<div class="columns small-12 medium-6 large-3">

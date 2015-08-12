@@ -53,6 +53,9 @@ $anchor-text-decoration-hover: none;
 $anchor-font-color: $primary-color;
 $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
 
+// Forms
+$form-label-font-color: $light-color;
+
 // Grid
 $row-width: rem-calc(1000);
 $price-title-bg: lighten($dark-color, 10%);
