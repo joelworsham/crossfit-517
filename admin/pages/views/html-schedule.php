@@ -54,7 +54,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</label>
 
 			<label>
-				Fire <input type="checkbox" name="_fire" value="1"/>
+				Fire <input type="radio" name="_class_type" value="fire"/>
+			</label>
+			<label>
+				Barbell <input type="radio" name="_class_type" value="barbell"/>
+			</label>
+			<label>
+				Normal <input type="radio" name="_class_type" value="normal" checked/>
 			</label>
 
 			<input type="submit" class="button" value="Add Class"/>

@@ -114,6 +114,10 @@ if ( $wod ) :
 				<p class="fire-description">
 					<span class="fa fa-fire"></span> - Crossfit fire class that is geared towards cardio and movement.
 				</p>
+
+				<p class="barbell-description">
+					BB - Barbell club specialty class.
+				</p>
 			</div>
 		</div>
 	</section>

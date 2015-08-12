@@ -32,10 +32,15 @@ throughout this theme's SASS files.
       border: none; }
     .crossfit-schedule .class.fire {
       color: #ea8484; }
+    .crossfit-schedule .class.barbell {
+      color: #898f9b; }
     @media only screen and (max-width: 40em) {
       .crossfit-schedule .class.blank {
         display: none; } }
 
 .fire-description {
   color: #ea8484; }
+
+.barbell-description {
+  color: #898f9b; }
 /*# sourceMappingURL=schedule.css.map */
