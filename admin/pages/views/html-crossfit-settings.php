@@ -100,18 +100,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<tr valign="top">
 				<th scope="row">
+					<label for="_crossfit_athletic_academy_page">
+						517 Athletic Academy Page
+					</label>
+				</th>
+				<td>
+					<?php
+					$athletic_academy_post = get_option( '_crossfit_athletic_academy_page' );
+					wp_dropdown_pages( array(
+						'id'               => '_crossfit_athletic_academy_page',
+						'name'             => '_crossfit_athletic_academy_page',
+						'selected'         => $athletic_academy_post ? $athletic_academy_post : 0,
+						'show_option_none' => '- Select a Page -',
+					) );
+					?>
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<th scope="row">
 					<label for="_crossfit_getting_started_page">
 						Getting Started Page
 					</label>
 				</th>
 				<td>
 					<?php
-					$get_started_post = get_option( '_crossfit_getting_started_page' );
+					$athletic_academy_post = get_option( '_crossfit_getting_started_page' );
 					wp_dropdown_pages( array(
 						'id'               => '_crossfit_getting_started_page',
 						'name'             => '_crossfit_getting_started_page',
-						'selected'         => $get_started_post ? $get_started_post : 0,
-						'show_option_none' => '- Select a Post -',
+						'selected'         => $athletic_academy_post ? $athletic_academy_post : 0,
+						'show_option_none' => '- Select a Page -',
 					) );
 					?>
 				</td>

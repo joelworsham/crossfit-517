@@ -31,6 +31,14 @@ body.home {
 
     .menu {
       font-size: inherit;
+
+      &.five {
+        .menu-item {
+          @media #{$large-up} {
+            width: 20%;
+          }
+        }
+      }
     }
 
     .menu-item {
@@ -39,7 +47,7 @@ body.home {
       text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 
       @media #{$large-up} {
-        width: 20%;
+        width: 25%;
       }
     }
   }
