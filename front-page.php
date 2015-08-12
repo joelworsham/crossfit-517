@@ -26,7 +26,7 @@ get_header();
 
 	<section class="home-section action-buttons">
 		<div class="row">
-			<div class="columns small-12 medium-4">
+			<div class="columns small-12 medium-6 large-3">
 				<h3>
 					<a href="#wod" class="button radius expand">
 						<span class="fa fa-cog"></span><br/>WOD
@@ -38,7 +38,7 @@ get_header();
 				</p>
 			</div>
 
-			<div class="columns small-12 medium-4">
+			<div class="columns small-12 medium-6 large-3">
 				<h3>
 					<a href="#schedule" class="button radius expand">
 						<span class="fa fa-calendar"></span><br/>Schedule
@@ -54,15 +54,27 @@ get_header();
 			$get_started_post = get_post_meta( get_the_ID(), '_get_started_post', true );
 			$get_started_url  = $get_started_post ? get_permalink( $get_started_post ) : '#';
 			?>
-			<div class="columns small-12 medium-4">
+			<div class="columns small-12 medium-6 large-3">
 				<h3>
-					<a href="#" data-reveal-id="getting-started" class="button radius expand">
+					<a href="<?php echo $get_started_url; ?>" class="button radius expand">
 						<span class="fa fa-check"></span><br/>Get Started
 					</a>
 				</h3>
 
 				<p>
 					Ready to take your life to the next level? Learn about what it takes to be a part of our family.
+				</p>
+			</div>
+
+			<div class="columns small-12 medium-6 large-3">
+				<h3>
+					<a href="#" data-reveal-id="more-info" class="button radius expand">
+						<span class="fa fa-info-circle"></span><br/>More Info
+					</a>
+				</h3>
+
+				<p>
+					Get more info on CrossFit and our gym.
 				</p>
 			</div>
 		</div>
@@ -215,7 +227,7 @@ if ( $wod ) :
 		</div>
 	</section>
 
-	<div id="getting-started" class="reveal-modal" data-reveal
+	<div id="more-info" class="reveal-modal" data-reveal
 		<?php echo isset( $_POST['_ninja_forms_display_submit'] ) ? 'data-reveal-onload' : ''; ?>
 		 aria-labelledby="modal-title" aria-hidden="true" role="dialog">
 
