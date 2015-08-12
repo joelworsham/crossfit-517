@@ -31,15 +31,26 @@ body.home {
 
     .menu {
       font-size: inherit;
+
+      &.five {
+        .menu-item {
+          @media #{$large-up} {
+            width: 20%;
+          }
+        }
+      }
+
     }
 
+
     .menu-item {
-      @extend .columns;
-      @extend .small-12;
-      @extend .medium-3;
       text-align: center;
       font-size: inherit;
       text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+      @media #{$large-up} {
+        width: 25%;
+      }
     }
   }
 
@@ -83,10 +94,6 @@ body.home {
       text-align: center !important;
     }
 
-    p {
-      font-size: inherit;
-    }
-
     .date {
       @extend h1;
     }
@@ -106,5 +113,9 @@ body.home {
     > .row {
       padding: 3em 0;
     }
+  }
+
+  #more-info {
+    color: $dark-color;
   }
 }
