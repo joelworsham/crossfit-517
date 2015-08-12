@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<td>
 					<input type="text" name="_crossfit_phone" id="_crossfit_phone"
 					       class="regular-text"
-					       value="<?php echo esc_attr( get_option('_crossfit_phone') ); ?>" />
+					       value="<?php echo esc_attr( get_option( '_crossfit_phone' ) ); ?>"/>
 
 					<p class="description">
 						<strong>Preferred Format:</strong> 555.555.5555
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<td>
 					<input type="text" name="_crossfit_email" id="_crossfit_email"
 					       class="regular-text"
-					       value="<?php echo esc_attr( get_option('_crossfit_email') ); ?>" />
+					       value="<?php echo esc_attr( get_option( '_crossfit_email' ) ); ?>"/>
 				</td>
 			</tr>
 
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<td>
 					<input type="text" name="_crossfit_address_condensed" id="_crossfit_address_condensed"
 					       class="regular-text"
-					       value="<?php echo get_option('_crossfit_address_condensed'); ?>" />
+					       value="<?php echo get_option( '_crossfit_address_condensed' ); ?>"/>
 				</td>
 			</tr>
 
@@ -74,12 +74,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<td>
 					<div style="max-width: 100%; width:400px;">
 						<?php
-						wp_editor( get_option('_crossfit_address'), '_crossfit_address', array(
-							'teeny' => true,
+						wp_editor( get_option( '_crossfit_address' ), '_crossfit_address', array(
+							'teeny'         => true,
 							'media_buttons' => false,
 							'textarea_rows' => 6,
 							'textarea_name' => '_crossfit_address',
-						));
+						) );
 						?>
 					</div>
 				</td>
@@ -116,6 +116,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 				</td>
 			</tr>
+
+			<?php if ( function_exists( 'Ninja_Forms' ) ) : ?>
+				<?php
+				$all_forms = Ninja_Forms()->forms()->get_all();
+
+				if ( ! empty( $all_forms ) ) :
+
+					$getting_started_form = get_option( '_crossfit_getting_started_form' );
+					?>
+					<tr valign="top">
+						<th scope="row">
+							<label for="_crossfit_getting_started_form">
+								Getting Started Form
+							</label>
+						</th>
+						<td>
+							<select id="_crossfit_getting_started_form" name="_crossfit_getting_started_form">
+								<?php
+								foreach ( $all_forms as $form_id ) :
+									$title = Ninja_Forms()->form( $form_id )->get_setting( 'form_title' );
+									?>
+									<option value="<?php echo $form_id; ?>"
+										<?php selected( $form_id, $getting_started_form ); ?>>
+										<?php echo $title; ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+						</td>
+					</tr>
+					<?php
+				endif;
+			endif;
+			?>
 
 		</table>
 

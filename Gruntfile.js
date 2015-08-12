@@ -90,6 +90,7 @@ module.exports = function (grunt) {
                         'assets/vendor/js/placeholder.js',
                         'assets/vendor/js/jquery.cookie.js',
                         'assets/vendor/js/foundation/foundation.js',
+                        'assets/vendor/js/foundation/foundation.reveal.js',
 
                         // Theme scripts
                         'assets/js/*.js'

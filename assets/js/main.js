@@ -14,6 +14,19 @@
         }
     });
 
+    // Reveal modal on load
+    $(function () {
+
+        var $modals = $('[data-reveal-onload]');
+
+        if ($modals.length) {
+            $modals.each(function () {
+                $(this).foundation('reveal','open');
+            });
+        }
+    });
+
+    // Smooth scroll anchors
     $(function() {
         $('a[href*=#]:not([href=#])').click(function() {
             if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {

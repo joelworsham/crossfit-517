@@ -56,7 +56,7 @@ get_header();
 			?>
 			<div class="columns small-12 medium-4">
 				<h3>
-					<a href="<?php echo $get_started_url; ?>" class="button radius expand">
+					<a href="#" data-reveal-id="getting-started" class="button radius expand">
 						<span class="fa fa-check"></span><br/>Get Started
 					</a>
 				</h3>
@@ -214,6 +214,28 @@ if ( $wod ) :
 
 		</div>
 	</section>
+
+	<div id="getting-started" class="reveal-modal" data-reveal
+		<?php echo isset( $_POST['_ninja_forms_display_submit'] ) ? 'data-reveal-onload' : ''; ?>
+		 aria-labelledby="modal-title" aria-hidden="true" role="dialog">
+
+		<h2 id="modal-title">
+			<?php if ( isset( $_POST['_ninja_forms_display_submit'] ) ) : ?>
+				Thank you! We will contact you shortly with more information.
+			<?php else: ?>
+				Fill out the form and we'll be in touch
+			<?php endif; ?>
+		</h2>
+
+		<?php
+		if ( function_exists( 'ninja_forms_display_form' ) && $form = get_option( '_crossfit_getting_started_form' ) ) {
+			ninja_forms_display_form( $form );
+		} else {
+			echo '<p>Huh, there should be a form here! Please try again later. Sorry about that.</p>';
+		}
+		?>
+		<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+	</div>
 
 <?php
 get_footer();
