@@ -2828,6 +2828,8 @@ throughout this theme's SASS files.
       display: inline-block;
       font-size: inherit;
       margin: 0 0.5em; }
+      #site-header .top-nav .menu .menu-item.athletic-academy {
+        color: #EE9236; }
       #site-header .top-nav .menu .menu-item a {
         color: inherit; }
         #site-header .top-nav .menu .menu-item a:hover {
