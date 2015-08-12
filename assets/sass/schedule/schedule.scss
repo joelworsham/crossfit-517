@@ -46,6 +46,10 @@
       color: mix(#f00, $light-color, 40);
     }
 
+    &.barbell {
+      color: mix(#0D1C3A, $light-color, 40);
+    }
+
     &.blank {
       @media #{$small-only} {
         display: none;
@@ -56,4 +60,8 @@
 
 .fire-description {
   color: mix(#f00, $light-color, 40);
+}
+
+.barbell-description {
+  color: mix(#0D1C3A, $light-color, 40);
 }

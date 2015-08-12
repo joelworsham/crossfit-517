@@ -23,6 +23,10 @@ The static site header.
         font-size: inherit;
         margin: 0 0.5em;
 
+        &.athletic-academy {
+          color: $primary-color;
+        }
+
         a {
           color: inherit;
 

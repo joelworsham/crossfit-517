@@ -24,60 +24,74 @@ get_header();
 	</section>
 <?php endif; ?>
 
-	<section class="home-section action-buttons row">
-		<div class="columns small-12 medium-4">
-			<h3>
-				<a href="#wod" class="button radius expand">
-					<span class="fa fa-cog"></span><br/>WOD
-				</a>
-			</h3>
+	<section class="home-section action-buttons">
+		<div class="row">
+			<div class="columns small-12 medium-6 large-3">
+				<h3>
+					<a href="#wod" class="button radius expand">
+						<span class="fa fa-cog"></span><br/>WOD
+					</a>
+				</h3>
 
-			<p>
-				Every day at CrossFit 517, we have a different workout. View it here and get ready for it!
-			</p>
-		</div>
+				<p>
+					Every day at CrossFit 517, we have a different workout. View it here and get ready for it!
+				</p>
+			</div>
 
-		<div class="columns small-12 medium-4">
-			<h3>
-				<a href="#schedule" class="button radius expand">
-					<span class="fa fa-calendar"></span><br/>Schedule
-				</a>
-			</h3>
+			<div class="columns small-12 medium-6 large-3">
+				<h3>
+					<a href="#schedule" class="button radius expand">
+						<span class="fa fa-calendar"></span><br/>Schedule
+					</a>
+				</h3>
 
-			<p>
-				We have specific class times each day. Find out when they are and sign up here.
-			</p>
-		</div>
+				<p>
+					We have specific class times each day. Find out when they are and sign up here.
+				</p>
+			</div>
 
-		<?php
-		$get_started_post = get_post_meta( get_the_ID(), '_get_started_post', true );
-		$get_started_url  = $get_started_post ? get_permalink( $get_started_post ) : '#';
-		?>
-		<div class="columns small-12 medium-4">
-			<h3>
-				<a href="<?php echo $get_started_url; ?>" class="button radius expand">
-					<span class="fa fa-check"></span><br/>Get Started
-				</a>
-			</h3>
+			<?php
+			$get_started_post = get_post_meta( get_the_ID(), '_get_started_post', true );
+			$get_started_url  = $get_started_post ? get_permalink( $get_started_post ) : '#';
+			?>
+			<div class="columns small-12 medium-6 large-3">
+				<h3>
+					<a href="<?php echo $get_started_url; ?>" class="button radius expand">
+						<span class="fa fa-check"></span><br/>Get Started
+					</a>
+				</h3>
 
-			<p>
-				Ready to take your life to the next level? Learn about what it takes to be a part of our family.
-			</p>
+				<p>
+					Ready to take your life to the next level? Learn about what it takes to be a part of our family.
+				</p>
+			</div>
+
+			<div class="columns small-12 medium-6 large-3">
+				<h3>
+					<a href="#" data-reveal-id="more-info" class="button radius expand">
+						<span class="fa fa-info-circle"></span><br/>More Info
+					</a>
+				</h3>
+
+				<p>
+					Get more info on CrossFit and our gym.
+				</p>
+			</div>
 		</div>
 	</section>
 
 
 <?php
 $wod = get_posts( array(
-	'post_type' => 'wod',
+	'post_type'   => 'wod',
 	'numberposts' => 1,
-));
+) );
 
 /** @var $wod WP_Post */
 $wod = $wod ? $wod[0] : false;
 
 if ( $wod ) :
-?>
+	?>
 	<section id="wod" class="home-section">
 
 		<h2 class="home-section-title">
@@ -111,6 +125,10 @@ if ( $wod ) :
 
 				<p class="fire-description">
 					<span class="fa fa-fire"></span> - Crossfit fire class that is geared towards cardio and movement.
+				</p>
+
+				<p class="barbell-description">
+					BB - Barbell club specialty class.
 				</p>
 			</div>
 		</div>
@@ -187,7 +205,7 @@ if ( $wod ) :
 							foreach ( $bullets as $bullet ) {
 								?>
 								<li class="bullet-item"><?php echo $bullet; ?></li>
-							<?php
+								<?php
 							}
 						}
 
@@ -208,6 +226,28 @@ if ( $wod ) :
 
 		</div>
 	</section>
+
+	<div id="more-info" class="reveal-modal" data-reveal
+		<?php echo isset( $_POST['_ninja_forms_display_submit'] ) ? 'data-reveal-onload' : ''; ?>
+		 aria-labelledby="modal-title" aria-hidden="true" role="dialog">
+
+		<h2 id="modal-title">
+			<?php if ( isset( $_POST['_ninja_forms_display_submit'] ) ) : ?>
+				Thank you! We will contact you shortly with more information.
+			<?php else: ?>
+				Fill out the form and we'll be in touch
+			<?php endif; ?>
+		</h2>
+
+		<?php
+		if ( function_exists( 'ninja_forms_display_form' ) && $form = get_option( '_crossfit_getting_started_form' ) ) {
+			ninja_forms_display_form( $form );
+		} else {
+			echo '<p>Huh, there should be a form here! Please try again later. Sorry about that.</p>';
+		}
+		?>
+		<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+	</div>
 
 <?php
 get_footer();

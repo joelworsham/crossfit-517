@@ -76,15 +76,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</section>
 
 		<?php if ( is_front_page() ) : ?>
-			<nav id="home-nav">
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'home-menu',
-					'container_class' => false,
-					'menu_class' => 'menu row',
-				));
-				?>
-			</nav>
+
+	<?php
+	$academy_page_ID = get_option( '_crossfit_athletic_academy_page', -1 );
+	$count           = get_post( $academy_page_ID ) ? 5 : 4;
+	?>
+		<nav id="home-nav">
+			<ul class="menu row expand <?php echo $count == 5 ? 'five' : ''; ?>">
+				<li class="menu-item columns small-12 medium-6">
+					<a href="#wod">
+						WOD
+					</a>
+				</li>
+				<li class="menu-item columns small-12 medium-6">
+					<a href="#schedule">
+						Schedule
+					</a>
+				</li>
+				<li class="menu-item columns small-12 medium-6">
+					<a href="#about">
+						What is CrossFit?
+					</a>
+				</li>
+				<li class="menu-item columns small-12 medium-6">
+					<a href="#pricing">
+						Pricing
+					</a>
+				</li>
+
+				<?php if ( $count == 5 ) : ?>
+					<li class="menu-item columns small-12 medium-6">
+						<a href="<?php echo get_permalink( $academy_page_ID ); ?>">
+							517 Athletic Academy
+						</a>
+					</li>
+				<?php endif; ?>
+			</ul>
+		</nav>
 		<?php endif; ?>
 
 	</header>
