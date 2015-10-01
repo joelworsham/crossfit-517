@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<label>
 				<span class="screen-reader-text">Day</span>
 				<select name="_day">
-					<option>- Select a Day -</option>
+					<option value="0">- Select a Day -</option>
 					<option value="sunday">Sunday</option>
 					<option value="monday">Monday</option>
 					<option value="tuesday">Tuesday</option>
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<label>
 				<span class="screen-reader-text">Time</span>
 				<select name="_time">
-					<option>- Select a Time -</option>
+					<option value="0">- Select a Time -</option>
 					<?php for ( $i = 6; $i <= 21; $i ++ ): ?>
 						<option value="<?php echo "$i:00"; ?>">
 							<?php echo date( 'h:iA', strtotime( "$i:00" ) ); ?>

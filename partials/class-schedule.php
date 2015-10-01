@@ -42,6 +42,8 @@ if ( $class_posts ) {
 
 if ( $classes ) :
 
+	crossfit_debug( $classes );
+
 	$weekdays = array(
 		'Sunday',
 		'Monday',
@@ -53,46 +55,45 @@ if ( $classes ) :
 	);
 	?>
 	<div class="crossfit-schedule row">
-		<?php foreach ($weekdays as $i => $day) : ?>
-		<div class="day <?php echo strtolower( $day ); ?>">
-			<h3 class="day-name">
-				<?php echo $day; ?>
-			</h3>
+		<?php foreach ( $weekdays as $i => $day ) : ?>
+			<div class="day <?php echo strtolower( $day ); ?>">
+				<h3 class="day-name">
+					<?php echo $day; ?>
+				</h3>
 
-			<?php
-			foreach ( $times as $time ) :
+				<?php
+				foreach ( $times as $time ) :
 
-				$class = isset( $classes[ strtolower( $day ) ][ $time ] ) ? $classes[ strtolower( $day ) ][ $time ] : false;
-				?>
-				<div class="class <?php echo $class ? $class['type'] : 'blank'; ?>">
-
-					<?php
-
-					if ( $class && is_admin() ) {
-						?>
-						<a href="<?php echo get_delete_post_link( $class['ID'] ); ?>" onclick="return confirm('Delete class?');">
-							<?php
-							echo date( 'g:iA', strtotime( $time ) );
-							echo $class['type'] != 'normal' ? "&nbsp;($class[type])" : '';
-							echo '<span class="dashicons dashicons-trash"></span>';
-							?>
-						</a>
-						<?php
-					} elseif ( $class ) {
-
-						echo date( 'g:iA', strtotime( $time ) );
-						echo $class['type'] == 'fire' ? '&nbsp;<span class="fa fa-fire"></span>' : '';
-						echo $class['type'] == 'barbell' ? '&nbsp;BB' : '';
-						echo $class['type'] == 'cougarfit' ? '&nbsp;CF' : '';
-						echo $class['type'] == 'foundations' ? '&nbsp;FD' : '';
-					} else {
-						echo '&nbsp;';
-					}
+					$class = isset( $classes[ strtolower( $day ) ][ $time ] ) ? $classes[ strtolower( $day ) ][ $time ] : false;
 					?>
-				</div>
-			<?php endforeach; ?>
-		</div>
+					<div class="class <?php echo $class ? $class['type'] : 'blank'; ?>">
+						<?php
+						if ( $class && is_admin() ) {
+							?>
+							<a href="<?php echo get_delete_post_link( $class['ID'] ); ?>"
+							   onclick="return confirm('Delete class?');">
+								<?php
+								echo date( 'g:iA', strtotime( $time ) );
+								echo $class['type'] != 'normal' ? "&nbsp;($class[type])" : '';
+								echo '<span class="dashicons dashicons-trash"></span>';
+								?>
+							</a>
+							<?php
+						} elseif ( $class ) {
+
+							echo date( 'g:iA', strtotime( $time ) );
+							echo $class['type'] == 'fire' ? '&nbsp;<span class="fa fa-fire"></span>' : '';
+							echo $class['type'] == 'barbell' ? '&nbsp;BB' : '';
+							echo $class['type'] == 'cougarfit' ? '&nbsp;CF' : '';
+							echo $class['type'] == 'foundations' ? '&nbsp;FD' : '';
+						} else {
+							echo '&nbsp;';
+						}
+						?>
+					</div>
+				<?php endforeach; ?>
+			</div>
 		<?php endforeach; ?>
 	</div>
-<?php
+	<?php
 endif;

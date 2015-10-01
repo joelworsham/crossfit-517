@@ -24,7 +24,7 @@ if ( defined( 'THEME_VERSION' ) || defined( 'THEME_ID' ) || isset( $crossfit_fon
 /**
  * The theme's current version (make sure to keep this up to date!)
  */
-define( 'THEME_VERSION', '1.0.2' );
+define( 'THEME_VERSION', '1.0.3' );
 
 /**
  * The theme's ID (used in handlers).

@@ -26,3 +26,14 @@ function crossfit_get_menu_by_location( $location ) {
 
 	return $menu_obj;
 }
+
+function crossfit_debug( $var ) {
+
+	if ( ! isset( $_GET['debug'] ) ) {
+		return;
+	}
+
+	echo '<pre>';
+	var_dump( $var );
+	echo '</pre>';
+}
