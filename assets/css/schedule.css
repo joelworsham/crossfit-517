@@ -34,6 +34,10 @@ throughout this theme's SASS files.
       color: #ea8484; }
     .crossfit-schedule .class.barbell {
       color: #898f9b; }
+    .crossfit-schedule .class.foundations {
+      color: #8ea18e; }
+    .crossfit-schedule .class.cougarfit {
+      color: #a08ba0; }
     @media only screen and (max-width: 40em) {
       .crossfit-schedule .class.blank {
         display: none; } }
@@ -43,4 +47,10 @@ throughout this theme's SASS files.
 
 .barbell-description {
   color: #898f9b; }
+
+.foundations-description {
+  color: #8ea18e; }
+
+.cougarfit-description {
+  color: #a08ba0; }
 /*# sourceMappingURL=schedule.css.map */

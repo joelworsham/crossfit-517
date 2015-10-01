@@ -61,11 +61,10 @@ if ( $classes ) :
 
 			<?php
 			foreach ( $times as $time ) :
+
 				$class = isset( $classes[ strtolower( $day ) ][ $time ] ) ? $classes[ strtolower( $day ) ][ $time ] : false;
 				?>
-				<div class="class <?php echo $class ? '' : 'blank';
-				echo $class['type'] == 'fire' ? 'fire' : '';
-				echo $class['type'] == 'barbell' ? 'barbell' : ''; ?>">
+				<div class="class <?php echo $class ? $class['type'] : 'blank'; ?>">
 
 					<?php
 
@@ -74,8 +73,7 @@ if ( $classes ) :
 						<a href="<?php echo get_delete_post_link( $class['ID'] ); ?>" onclick="return confirm('Delete class?');">
 							<?php
 							echo date( 'g:iA', strtotime( $time ) );
-							echo $class['type'] == 'fire' ? '&nbsp;(fire)' : '';
-							echo $class['type'] == 'barbell' ? '&nbsp;(barbell)' : '';
+							echo $class['type'] != 'normal' ? "&nbsp;($class[type])" : '';
 							echo '<span class="dashicons dashicons-trash"></span>';
 							?>
 						</a>
@@ -85,6 +83,8 @@ if ( $classes ) :
 						echo date( 'g:iA', strtotime( $time ) );
 						echo $class['type'] == 'fire' ? '&nbsp;<span class="fa fa-fire"></span>' : '';
 						echo $class['type'] == 'barbell' ? '&nbsp;BB' : '';
+						echo $class['type'] == 'cougarfit' ? '&nbsp;CF' : '';
+						echo $class['type'] == 'foundations' ? '&nbsp;FD' : '';
 					} else {
 						echo '&nbsp;';
 					}

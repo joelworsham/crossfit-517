@@ -130,6 +130,14 @@ if ( $wod ) :
 				<p class="barbell-description">
 					BB - Barbell club specialty class.
 				</p>
+
+				<p class="cougarfit-description">
+					CF - CougarFit specialty class.
+				</p>
+
+				<p class="foundations-description">
+					FD - Foundations specialty class.
+				</p>
 			</div>
 		</div>
 	</section>

@@ -50,6 +50,14 @@
       color: mix(#0D1C3A, $light-color, 40);
     }
 
+    &.foundations {
+      color: mix(#184818, $light-color, 40);
+    }
+
+    &.cougarfit {
+      color: mix(#461046, $light-color, 40);
+    }
+
     &.blank {
       @media #{$small-only} {
         display: none;
@@ -64,4 +72,12 @@
 
 .barbell-description {
   color: mix(#0D1C3A, $light-color, 40);
+}
+
+.foundations-description {
+  color: mix(#184818, $light-color, 40);
+}
+
+.cougarfit-description {
+  color: mix(#461046, $light-color, 40);
 }
