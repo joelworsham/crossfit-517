@@ -37,7 +37,10 @@ if ( $class_posts ) {
 		}
 	}
 
-	sort( $times, SORT_NUMERIC );
+	uasort( $times, function ( $a, $b ) {
+		return strtotime( $a ) - strtotime( $b );
+	} );
+//	sort( $times, SORT_NUMERIC );
 }
 
 if ( $classes ) :
