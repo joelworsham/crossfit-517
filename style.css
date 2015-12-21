@@ -2931,6 +2931,68 @@ throughout this theme's SASS files.
 
 @since 0.1.0
 */
+body.single-tribe_events article.page-content {
+  width: 100%;
+  margin: 0; }
+body.single-tribe_events #site-sidebar {
+  display: none; }
+body.single-tribe_events .tribe-events-event-meta {
+  background: #555;
+  border-color: #666; }
+  body.single-tribe_events .tribe-events-event-meta h3 {
+    font-size: 2em; }
+body.single-tribe_events #tribe-events-footer {
+  border: none; }
+
+#tribe-bar-form {
+  background: #555; }
+
+#tribe-bar-collapse-toggle {
+  background: #555; }
+
+#tribe-bar-views {
+  color: #555; }
+  #tribe-bar-views label {
+    color: inherit; }
+
+body.post-type-archive-tribe_events article.page-content {
+  width: 100%;
+  margin: 0; }
+body.post-type-archive-tribe_events #site-sidebar {
+  display: none; }
+
+.tribe-events-calendar td.tribe-events-past div[id*=tribe-events-daynum-], .tribe-events-calendar td.tribe-events-past div[id*=tribe-events-daynum-] > a {
+  color: #555; }
+
+#tribe-events-content .tribe-events-calendar td.tribe-events-othermonth {
+  background-color: #555; }
+
+#tribe-events .tribe-events-button, #tribe-events .tribe-events-button:hover, #tribe_events_filters_wrapper input[type=submit], .tribe-events-button, .tribe-events-button.tribe-active:hover, .tribe-events-button.tribe-inactive, .tribe-events-button:hover, .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-], .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-] > a {
+  background-color: #EE9236; }
+
+#tribe-events-content .tribe-events-tooltip h4, #tribe_events_filters_wrapper .tribe_events_slider_val, .single-tribe_events a.tribe-events-gcal, .single-tribe_events a.tribe-events-ical {
+  color: #EE9236; }
+
+.tribe-events-abbr.tribe-event-date-start {
+  color: #aaa; }
+
+.tribe-events-day .tribe-events-day-time-slot h5 {
+  background-color: #555; }
+
+.tribe-events-list-separator-month span {
+  background-color: #555; }
+
+/*
+Styles page.php.
+
+@since 0.1.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
 /*
 Styles page.php.
 
