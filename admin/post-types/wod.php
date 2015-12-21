@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'init', function () {
 	easy_register_post_type( 'wod', 'WOD', 'WODs', array(
 		'menu_icon' => 'dashicons-calendar',
-		'supports'  => array( 'editor' ),
+		'supports'  => array( 'editor', 'title' ),
 		'rewrite'   => array( 'slug' => 'wods' ),
 	) );
 } );

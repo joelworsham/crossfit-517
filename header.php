@@ -30,6 +30,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?>>
 
+<?php if ( strpos( $_SERVER['HTTP_HOST'], '.dev' ) === false && ! is_user_logged_in() && ! current_user_can( 'manage_options' ) ) : ?>
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function () {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-71586566-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+<?php endif; ?>
+
 <div id="wrapper">
 
 	<header id="site-header">
@@ -77,42 +96,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( is_front_page() ) : ?>
 
-	<?php
-	$academy_page_ID = get_option( '_crossfit_athletic_academy_page', -1 );
-	$count           = get_post( $academy_page_ID ) ? 5 : 4;
-	?>
-		<nav id="home-nav">
-			<ul class="menu row expand <?php echo $count == 5 ? 'five' : ''; ?>">
-				<li class="menu-item columns small-12 medium-6">
-					<a href="#wod">
-						WOD
-					</a>
-				</li>
-				<li class="menu-item columns small-12 medium-6">
-					<a href="#schedule">
-						Schedule
-					</a>
-				</li>
-				<li class="menu-item columns small-12 medium-6">
-					<a href="#about">
-						What is CrossFit?
-					</a>
-				</li>
-				<li class="menu-item columns small-12 medium-6">
-					<a href="#pricing">
-						Pricing
-					</a>
-				</li>
-
-				<?php if ( $count == 5 ) : ?>
+			<?php
+			$academy_page_ID = get_option( '_crossfit_athletic_academy_page', - 1 );
+			$count           = get_post( $academy_page_ID ) ? 5 : 4;
+			?>
+			<nav id="home-nav">
+				<ul class="menu row expand <?php echo $count == 5 ? 'five' : ''; ?>">
 					<li class="menu-item columns small-12 medium-6">
-						<a href="<?php echo get_permalink( $academy_page_ID ); ?>">
-							517 Athletic Academy
+						<a href="#wod">
+							WOD
 						</a>
 					</li>
-				<?php endif; ?>
-			</ul>
-		</nav>
+					<li class="menu-item columns small-12 medium-6">
+						<a href="#schedule">
+							Schedule
+						</a>
+					</li>
+					<li class="menu-item columns small-12 medium-6">
+						<a href="#about">
+							What is CrossFit?
+						</a>
+					</li>
+					<li class="menu-item columns small-12 medium-6">
+						<a href="#pricing">
+							Pricing
+						</a>
+					</li>
+
+					<?php if ( $count == 5 ) : ?>
+						<li class="menu-item columns small-12 medium-6">
+							<a href="<?php echo get_permalink( $academy_page_ID ); ?>">
+								517 Athletic Academy
+							</a>
+						</li>
+					<?php endif; ?>
+				</ul>
+			</nav>
 		<?php endif; ?>
 
 	</header>
