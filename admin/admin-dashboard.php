@@ -47,6 +47,10 @@ function crossfit_dashboard_wod_widget() {
 				<span class="dashicons dashicons-plus"></span>
 			</a>
 
+			<a href="<?php echo get_edit_post_link( $wod->ID ); ?>"  class="crossfit-dash-widget-icon">
+				<span class="dashicons dashicons-edit"></span>
+			</a>
+
 			<hr/>
 
 			<div class="latest-wod">
