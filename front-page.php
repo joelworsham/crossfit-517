@@ -50,19 +50,15 @@ get_header();
 				</p>
 			</div>
 
-			<?php
-			$get_started_post = get_option( '_crossfit_getting_started_page', -1 );
-			$get_started_url  = $get_started_post ? get_permalink( $get_started_post ) : '#';
-			?>
 			<div class="columns small-12 medium-6 large-3">
 				<h3>
-					<a href="<?php echo $get_started_url; ?>" class="button radius expand">
-						<span class="fa fa-check"></span><br/>Get Started
+					<a href="#blog" class="button radius expand">
+						<span class="fa fa-rss"></span><br/>Blog
 					</a>
 				</h3>
 
 				<p>
-					Ready to take your life to the next level? Learn about what it takes to be a part of our family.
+					View the latest from the CrossFit 517 Blog.
 				</p>
 			</div>
 
@@ -138,6 +134,42 @@ if ( $wod ) :
 				<p class="foundations-description">
 					FD - Foundations specialty class.
 				</p>
+			</div>
+		</div>
+	</section>
+
+	<section id="blog" class="home-section">
+
+		<h2 class="home-section-title">
+			CrossFit 517 Blog
+		</h2>
+
+		<div class="row">
+			<div class="columns small-12">
+				<?php $posts = get_posts(); ?>
+
+				<?php if ( $posts ) : ?>
+					<?php foreach ( $posts as $post ): setup_postdata( $post ); ?>
+							<article <?php post_class(); ?>>
+								<h3 class="post-title">
+									<a href="<?php the_permalink(); ?>">
+										<?php the_title(); ?>
+									</a>
+								</h3>
+
+								<div class="post-excerpt">
+									<?php the_excerpt(); ?>
+								</div>
+
+								<p class="read-more">
+									<a href="<?php the_permalink(); ?>" class="button large">
+										Read More
+									</a>
+								</p>
+							</article>
+					<?php endforeach;
+					wp_reset_postdata(); ?>
+				<?php endif; ?>
 			</div>
 		</div>
 	</section>
