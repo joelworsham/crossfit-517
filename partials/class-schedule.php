@@ -73,8 +73,7 @@ if ( $classes ) :
 						<?php
 						if ( $class && is_admin() ) {
 							?>
-							<a href="<?php echo get_delete_post_link( $class['ID'] ); ?>"
-							   onclick="return confirm('Delete class?');">
+							<a href="<?php echo get_delete_post_link( $class['ID'] ); ?>">
 								<?php
 								echo date( 'g:iA', strtotime( $time ) );
 								echo $class['type'] != 'normal' ? "&nbsp;($class[type])" : '';

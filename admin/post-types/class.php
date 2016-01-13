@@ -17,6 +17,6 @@ add_action( 'init', function () {
 		'supports'  => false,
 		'rewrite'   => array( 'slug' => 'classes' ),
 		'public' => false,
-		'show_ui' => false,
+		'show_ui' => true,
 	) );
 } );
