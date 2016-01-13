@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once __DIR__ . '/pages/crossfit-general.php';
 require_once __DIR__ . '/pages/schedule.php';
 require_once __DIR__ . '/extra-meta/home.php';
+require_once __DIR__ . '/post-types/article.php';
 require_once __DIR__ . '/post-types/wod.php';
 require_once __DIR__ . '/post-types/class.php';
 
