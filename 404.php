@@ -18,18 +18,23 @@ get_header();
 
 		<div class="columns small-12">
 
+			<h1 class="page-title">
+				404 - Not Found
+			</h1>
+
 			<div class="page-copy">
-				Sorry, but there doesn't seem to be anything here!
+				Sorry, but there doesn't seem to be anything here.
 
-				Perhaps one of these pages could be helpful:
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'error-404',
-					'container' => false,
-				));
-				?>
+				<?php if ( has_nav_menu( 'error-404' ) ) : ?>
+					Perhaps one of these pages could be helpful:
 
-				If you're still lost, you can always contact us at <?php echo _crossfit_sc_email(); ?> or <?php echo _crossfit_sc_phone(); ?>.
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'error-404',
+						'container'      => false,
+					) );
+					?>
+				<?php endif; ?>
 			</div>
 
 		</div>
