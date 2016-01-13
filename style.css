@@ -3292,6 +3292,11 @@ throughout this theme's SASS files.
   margin-left: 3em;
   list-style: disc; }
 
+.post-title a, .page-title a {
+  color: inherit; }
+  .post-title a:hover, .page-title a:hover {
+    text-decoration: underline; }
+
 /*
 Social shortcodes.
 

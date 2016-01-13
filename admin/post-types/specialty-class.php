@@ -1,6 +1,6 @@
 <?php
 /**
- * Article post type.
+ * Specialty Class post type.
  *
  * @since   {{VERSION}}
  * @package CrossFit
@@ -12,10 +12,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'init', function () {
-	easy_register_post_type( 'article', 'Article', 'Articles', array(
-		'menu_icon' => 'dashicons-format-aside',
+	easy_register_post_type( 'specialty-class', 'Specialty Class', 'Specialty Classes', array(
+		'menu_icon' => 'dashicons-welcome-learn-more',
 		'supports'  => array( 'title', 'editor' ),
-		'rewrite'   => array( 'slug' => 'articles' ),
+		'rewrite'   => array( 'slug' => 'specialty-classes' ),
 		'public' => true,
 		'show_ui' => true,
 	) );
