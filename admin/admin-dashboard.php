@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-add_action( 'wp_dashboard_setup', 'crossfit_manage_dashboard_widgets' );
+add_action( 'wp_dashboard_setup', 'crossfit_manage_dashboard_widgets', 999 );
 
 function crossfit_manage_dashboard_widgets() {
 
@@ -20,6 +20,7 @@ function crossfit_manage_dashboard_widgets() {
 		// Remove
 		remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
 		remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+		remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );
 		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
 		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' );
 
