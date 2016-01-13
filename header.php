@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			?>
 		</nav>
 
-		<section class="logo-container">
+		<section class="logo-container small-only-text-center">
 
 			<div class="row">
 				<div class="columns small-12 medium-6">
