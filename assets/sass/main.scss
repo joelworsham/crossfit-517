@@ -35,6 +35,9 @@ Version: 1.0.4
 @import "static/site-content";
 @import "static/footer";
 
+// Partials
+@import "partials/calendar";
+
 // Templates
 @import "templates/single-post";
 @import "templates/page";

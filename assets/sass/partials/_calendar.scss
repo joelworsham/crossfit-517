@@ -1,0 +1,200 @@
+/*
+The calendar.
+
+@since {{VERSION}}
+*/
+@import "../settings";
+
+#jc-calendar {
+  .calendar-pagination {
+    margin: 1em 0;
+    color: $primary-color;
+    font-weight: bold;
+    text-align: center;
+
+    .current-month {
+      font-size: 1.5em;
+    }
+
+    .next-link {
+      float: right;
+    }
+
+    .previous-link {
+      float: left;
+    }
+  }
+
+  .calendar-table {
+    width: 100%;
+    table-layout: fixed;
+    border: 1px solid #ddd;
+
+    thead {
+      th {
+        border-bottom: 1px solid #e1e1e1;
+        padding: 0.5em 0;
+        color: $primary-color;
+      }
+    }
+
+    .day {
+      position: relative;
+      border-bottom: 1px solid #e1e1e1;
+      border-right: 1px solid #e1e1e1;
+
+      &:hover {
+        background-color: #fafafa;
+      }
+
+      &.no-events {
+        .day-indicator {
+          color: #999;
+        }
+      }
+
+      &.today {
+        .day-indicator {
+          color: #fff;
+          background-color: $primary-color;
+        }
+      }
+
+      .day-container {
+        height: 70px;
+        margin-top: 25px;
+        padding: 5px;
+
+        @media #{$large-up} {
+          height: 90px;
+        }
+      }
+
+      .day-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #555;
+        background-color: #fafafa;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+      }
+
+      .day-events {
+        margin: 0;
+        list-style: none;
+        font-size: 0.8em;
+
+        a {
+          display: block;
+          white-space: nowrap;
+          overflow-x: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      li {
+        position: relative;
+
+        &:hover {
+          .event-tooltip {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+
+        .event-tooltip {
+          position: absolute;
+          visibility: hidden;
+          opacity: 0;
+          top: 100%;
+          left: 50%;
+          width: 250px;
+          margin-left: -125px;
+          margin-top: 10px;
+          padding: 10px;
+          color: #555;
+          background: #fff;
+          border: 1px solid #aaa;
+          box-shadow: 0 0 30px rgba(#000, 0.1);
+          z-index: 100;
+          transition: visibility 300ms, opacity 300ms;
+
+          .event-details {
+            color: #444;
+
+            p {
+              margin: 0;
+            }
+
+            .event-details-row {
+              @include clearfix;
+              padding: 0.5em 0;
+            }
+
+            .event-icon {
+              float: left;
+              width: 1.2em;
+            }
+
+            .event-meta {
+              overflow: hidden;
+              padding-left: 0.5em;
+            }
+          }
+
+          p {
+            margin: 0;
+            font-size: inherit;
+          }
+
+          &:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            margin-left: -11px;
+            width: 0;
+            height: 0;
+            border-bottom: 10px solid #aaa;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            top: -9px;
+            left: 50%;
+            margin-left: -10px;
+            width: 0;
+            height: 0;
+            border-bottom: 9px solid #fff;
+            border-left: 9px solid transparent;
+            border-right: 9px solid transparent;
+          }
+
+          .event-title {
+            margin-bottom: 1em;
+
+            a {
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .event-details {
+            .event-details-row {
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

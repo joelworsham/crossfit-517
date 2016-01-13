@@ -3207,6 +3207,146 @@ throughout this theme's SASS files.
     font-size: 0.8em; }
 
 /*
+The calendar.
+
+@since {{VERSION}}
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+#jc-calendar .calendar-pagination {
+  margin: 1em 0;
+  color: #EE9236;
+  font-weight: bold;
+  text-align: center; }
+  #jc-calendar .calendar-pagination .current-month {
+    font-size: 1.5em; }
+  #jc-calendar .calendar-pagination .next-link {
+    float: right; }
+  #jc-calendar .calendar-pagination .previous-link {
+    float: left; }
+#jc-calendar .calendar-table {
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid #ddd; }
+  #jc-calendar .calendar-table thead th {
+    border-bottom: 1px solid #e1e1e1;
+    padding: 0.5em 0;
+    color: #EE9236; }
+  #jc-calendar .calendar-table .day {
+    position: relative;
+    border-bottom: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1; }
+    #jc-calendar .calendar-table .day:hover {
+      background-color: #fafafa; }
+    #jc-calendar .calendar-table .day.no-events .day-indicator {
+      color: #999; }
+    #jc-calendar .calendar-table .day.today .day-indicator {
+      color: #fff;
+      background-color: #EE9236; }
+    #jc-calendar .calendar-table .day .day-container {
+      height: 70px;
+      margin-top: 25px;
+      padding: 5px; }
+      @media only screen and (min-width:64.063em) {
+        #jc-calendar .calendar-table .day .day-container {
+          height: 90px; } }
+    #jc-calendar .calendar-table .day .day-indicator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #555;
+      background-color: #fafafa;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center; }
+    #jc-calendar .calendar-table .day .day-events {
+      margin: 0;
+      list-style: none;
+      font-size: 0.8em; }
+      #jc-calendar .calendar-table .day .day-events a {
+        display: block;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis; }
+    #jc-calendar .calendar-table .day li {
+      position: relative; }
+      #jc-calendar .calendar-table .day li:hover .event-tooltip {
+        visibility: visible;
+        opacity: 1; }
+      #jc-calendar .calendar-table .day li .event-tooltip {
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        top: 100%;
+        left: 50%;
+        width: 250px;
+        margin-left: -125px;
+        margin-top: 10px;
+        padding: 10px;
+        color: #555;
+        background: #fff;
+        border: 1px solid #aaa;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        -webkit-transition: visibility 300ms, opacity 300ms;
+                transition: visibility 300ms, opacity 300ms; }
+        #jc-calendar .calendar-table .day li .event-tooltip .event-details {
+          color: #444; }
+          #jc-calendar .calendar-table .day li .event-tooltip .event-details p {
+            margin: 0; }
+          #jc-calendar .calendar-table .day li .event-tooltip .event-details .event-details-row {
+            padding: 0.5em 0; }
+            #jc-calendar .calendar-table .day li .event-tooltip .event-details .event-details-row:before, #jc-calendar .calendar-table .day li .event-tooltip .event-details .event-details-row:after {
+              content: " ";
+              display: table; }
+            #jc-calendar .calendar-table .day li .event-tooltip .event-details .event-details-row:after {
+              clear: both; }
+          #jc-calendar .calendar-table .day li .event-tooltip .event-details .event-icon {
+            float: left;
+            width: 1.2em; }
+          #jc-calendar .calendar-table .day li .event-tooltip .event-details .event-meta {
+            overflow: hidden;
+            padding-left: 0.5em; }
+        #jc-calendar .calendar-table .day li .event-tooltip p {
+          margin: 0;
+          font-size: inherit; }
+        #jc-calendar .calendar-table .day li .event-tooltip:before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: 50%;
+          margin-left: -11px;
+          width: 0;
+          height: 0;
+          border-bottom: 10px solid #aaa;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent; }
+        #jc-calendar .calendar-table .day li .event-tooltip:after {
+          content: '';
+          position: absolute;
+          top: -9px;
+          left: 50%;
+          margin-left: -10px;
+          width: 0;
+          height: 0;
+          border-bottom: 9px solid #fff;
+          border-left: 9px solid transparent;
+          border-right: 9px solid transparent; }
+        #jc-calendar .calendar-table .day li .event-tooltip .event-title {
+          margin-bottom: 1em; }
+          #jc-calendar .calendar-table .day li .event-tooltip .event-title a:hover {
+            text-decoration: underline; }
+        #jc-calendar .calendar-table .day li .event-tooltip .event-details .event-details-row {
+          padding: 0; }
+
+/*
 Styles single.php.
 
 @since 0.1.0
