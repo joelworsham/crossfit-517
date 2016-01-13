@@ -25,8 +25,7 @@ function crossfit_manage_dashboard_widgets() {
 
 		// Add
 		add_meta_box( 'crossfit_dashboard_wod', 'WOD', 'crossfit_dashboard_wod_widget', 'dashboard', 'normal' );
-		add_meta_box( 'crossfit_dashboard_edit_menu', 'Edit Menus', 'crossfit_dashboard_edit_menu_widget', 'dashboard', 'normal' );
-		add_meta_box( 'crossfit_dashboard_new_page', 'New Page', 'crossfit_dashboard_new_page_widget', 'dashboard', 'side' );
+		add_meta_box( 'crossfit_dashboard_edit_menu', 'Edit Menus', 'crossfit_dashboard_edit_menu_widget', 'dashboard', 'side' );
 	}
 }
 
@@ -65,16 +64,6 @@ function crossfit_dashboard_wod_widget() {
 		</div>
 		<?php
 	endif;
-}
-
-function crossfit_dashboard_new_page_widget() {
-	?>
-	<p class="crossfit-dash-widget">
-		<a href="<?php echo admin_url( 'post-new.php?post_type=page' ); ?>" class="crossfit-dash-widget-icon">
-			<span class="dashicons dashicons-plus"></span>
-		</a>
-	</p>
-	<?php
 }
 
 function crossfit_dashboard_edit_menu_widget() {
