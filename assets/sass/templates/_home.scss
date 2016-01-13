@@ -80,6 +80,14 @@ body.home {
   }
 
   .home-section {
+    @media #{$small-only} {
+      &:first-of-type {
+        > .row {
+          padding-top: 0;
+        }
+      }
+    }
+
     > .row {
       padding: 3em 0;
     }

@@ -71,13 +71,93 @@ The static site header.
     }
   }
 
+  #mobile-nav {
+    text-align: center;
+
+    &.active {
+      margin-bottom: 3em;
+
+      .toggle-mobile-nav {
+        .icon-open {
+          display: none;
+        }
+
+        .icon-close {
+          display: inline-block;
+        }
+      }
+    }
+
+
+    .toggle-mobile-nav {
+      font-size: 3em;
+
+      .icon-close {
+        display: none;
+      }
+    }
+
+    .mobile-nav-menus {
+      background-color: #bbb;
+      padding-bottom: 1em;
+
+      .menu-item {
+        color: #333;
+      }
+
+      a {
+        display: block;
+        padding: 0.5em;
+        color: inherit;
+      }
+
+      .primary-nav {
+        font-weight: bold;
+
+        .menu-item {
+          &:first-of-type {
+            padding-top: 1em;
+          }
+
+          &:last-of-type {
+            padding-bottom: 1em;
+          }
+        }
+      }
+
+      .secondary-nav {
+        font-size: 0.8em;
+
+        .menu-item {
+          display: inline-block;
+
+          a {
+            padding: 0.1em 0.5em;
+          }
+        }
+      }
+    }
+  }
+
   .logo-container {
     background: #222 url("assets/images/grunge-repeatable-1.png");
     padding: 1em 0;
     color: $light-color;
 
     .logo {
-      max-height: 180px;
+      //noinspection CssOverwrittenProperties
+      img {
+        max-height: 100px;
+        max-height: 20vh;
+
+        @media #{$medium-up} {
+          max-height: 180px;
+        }
+      }
+
+      a {
+        display: block;
+      }
     }
 
     p {
@@ -91,11 +171,24 @@ The static site header.
     .address {
       color: $medium-color;
       font-style: italic;
+      margin-bottom: 0.4em;
     }
 
     .phone {
       font-family: $header-font-family;
-      font-size: 3em;
+      font-size: 2em;
+
+      @media #{$medium-up} {
+        font-size: 3em;
+      }
+    }
+  }
+}
+
+body:not(.no-js) {
+  #mobile-nav {
+    .mobile-nav-menus {
+      display: none;
     }
   }
 }

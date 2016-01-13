@@ -3131,22 +3131,68 @@ throughout this theme's SASS files.
     #site-header #primary-nav .menu-item a {
       display: block;
       padding: 0.5em; }
+#site-header #mobile-nav {
+  text-align: center; }
+  #site-header #mobile-nav.active {
+    margin-bottom: 3em; }
+    #site-header #mobile-nav.active .toggle-mobile-nav .icon-open {
+      display: none; }
+    #site-header #mobile-nav.active .toggle-mobile-nav .icon-close {
+      display: inline-block; }
+  #site-header #mobile-nav .toggle-mobile-nav {
+    font-size: 3em; }
+    #site-header #mobile-nav .toggle-mobile-nav .icon-close {
+      display: none; }
+  #site-header #mobile-nav .mobile-nav-menus {
+    background-color: #bbb;
+    padding-bottom: 1em; }
+    #site-header #mobile-nav .mobile-nav-menus .menu-item {
+      color: #333; }
+    #site-header #mobile-nav .mobile-nav-menus a {
+      display: block;
+      padding: 0.5em;
+      color: inherit; }
+    #site-header #mobile-nav .mobile-nav-menus .primary-nav {
+      font-weight: bold; }
+      #site-header #mobile-nav .mobile-nav-menus .primary-nav .menu-item:first-of-type {
+        padding-top: 1em; }
+      #site-header #mobile-nav .mobile-nav-menus .primary-nav .menu-item:last-of-type {
+        padding-bottom: 1em; }
+    #site-header #mobile-nav .mobile-nav-menus .secondary-nav {
+      font-size: 0.8em; }
+      #site-header #mobile-nav .mobile-nav-menus .secondary-nav .menu-item {
+        display: inline-block; }
+        #site-header #mobile-nav .mobile-nav-menus .secondary-nav .menu-item a {
+          padding: 0.1em 0.5em; }
 #site-header .logo-container {
   background: #222 url("assets/images/grunge-repeatable-1.png");
   padding: 1em 0;
   color: #DDDDDD; }
-  #site-header .logo-container .logo {
-    max-height: 180px; }
+  #site-header .logo-container .logo img {
+    max-height: 100px;
+    max-height: 20vh; }
+    @media only screen and (min-width:40.063em) {
+      #site-header .logo-container .logo img {
+        max-height: 180px; } }
+  #site-header .logo-container .logo a {
+    display: block; }
   #site-header .logo-container p {
     margin: 0; }
   #site-header .logo-container button, #site-header .logo-container input[type="submit"] {
     margin: 0; }
   #site-header .logo-container .address {
     color: #bbb;
-    font-style: italic; }
+    font-style: italic;
+    margin-bottom: 0.4em; }
   #site-header .logo-container .phone {
     font-family: 'Diamante', sans-serif;
-    font-size: 3em; }
+    font-size: 2em; }
+    @media only screen and (min-width:40.063em) {
+      #site-header .logo-container .phone {
+        font-size: 3em; } }
+
+body:not(.no-js) #mobile-nav .mobile-nav-menus {
+  display: none; }
 
 /*
 The static site header.
@@ -3412,6 +3458,9 @@ body.home #wod {
     text-align: center !important; }
 body.home #pricing .pricing-table.highlighted .title {
   background: #EE9236; }
+@media only screen and (max-width: 40em) {
+  body.home .home-section:first-of-type > .row {
+    padding-top: 0; } }
 body.home .home-section > .row {
   padding: 3em 0; }
 body.home #more-info {

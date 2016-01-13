@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<header id="site-header">
 
-		<nav class="top-nav">
+		<nav class="top-nav show-for-medium-up">
 			<?php
 			wp_nav_menu( array(
 				'theme_location'  => 'top-menu',
@@ -47,35 +47,35 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<section class="logo-container small-only-text-center">
 
 			<div class="row">
-				<div class="columns small-12 medium-6">
+				<div class="logo columns small-12 medium-6">
 					<a href="<?php bloginfo( 'url' ); ?>">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-header.png"
-						     class="logo" alt="crossfit 517"/>
+						     alt="crossfit 517"/>
 					</a>
 				</div>
 
 				<div class="columns small-12 medium-6 medium-text-right">
-					<p class="address">
+					<div class="address">
 						<?php echo crossfit_sc_address( array( 'condensed' => 'yes' ) ); ?>
-					</p>
+					</div>
 
-					<p class="phone">
+					<div class="phone">
 						<?php echo crossfit_sc_phone(); ?>
-					</p>
+					</div>
 
-					<p class="get-started">
+					<div class="get-started show-for-medium-up">
 						<?php if ( $get_started_post = get_option( '_crossfit_getting_started_page' ) ) : ?>
 							<a href="<?php echo get_permalink( $get_started_post ); ?>" class="button radius large">
 								Get Started
 							</a>
 						<?php endif; ?>
-					</p>
+					</div>
 				</div>
 			</div>
 
 		</section>
 
-		<nav id="primary-nav">
+		<nav id="primary-nav" class="show-for-medium-up">
 			<?php
 			$theme_locations = get_nav_menu_locations();
 			$primary_menu    = get_term( $theme_locations['primary-menu'], 'nav_menu' );
@@ -92,6 +92,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			) );
 			?>
+		</nav>
+
+		<nav id="mobile-nav" class="hide-for-medium-up">
+			<a href="#" class="toggle-mobile-nav">
+				<span class="icon-open fa fa-bars"></span>
+				<span class="icon-close fa fa-times"></span>
+			</a>
+
+			<div class="mobile-nav-menus">
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'primary-menu',
+					'container'      => 'false',
+					'menu_class'     => 'menu primary-nav',
+				) );
+				?>
+
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'top-menu',
+					'container'      => 'false',
+					'menu_class'     => 'menu secondary-nav',
+				) );
+				?>
+			</div>
 		</nav>
 
 	</header>
