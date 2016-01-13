@@ -12,6 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Require files
+require_once __DIR__ . '/admin-menu.php';
+require_once __DIR__ . '/admin-dashboard.php';
 require_once __DIR__ . '/pages/crossfit-general.php';
 require_once __DIR__ . '/pages/schedule.php';
 require_once __DIR__ . '/extra-meta/home.php';
