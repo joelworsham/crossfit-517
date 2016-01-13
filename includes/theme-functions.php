@@ -50,6 +50,8 @@ function crossfit_modify_events_cpt( $args, $post_type ) {
 	$args['has_archive']         = true;
 	$args['exclude_from_search'] = false;
 	$args['publicly_queryable']  = true;
+	$args['show_in_nav_menus']  = true;
+	$args['archive_in_nav_menus']  = true;
 	$args['rewrite']['slug']     = 'events';
 
 	return $args;
