@@ -8,7 +8,7 @@
     'use strict';
 
     $(function () {
-        var $homemenu = $('#home-nav'),
+        var $primary_nav = $('#primary-nav'),
             $header = $('#site-header'),
             scrolled = false,
             $wpadminbar = $('#wpadminbar'),
@@ -23,12 +23,12 @@
                     scrolled = true;
 
                     $header.css({
-                        marginBottom: $homemenu.outerHeight()
+                        marginBottom: $primary_nav.outerHeight()
                     });
 
-                    $homemenu.css({
+                    $primary_nav.css({
                         position: 'fixed',
-                        top: -$homemenu.outerHeight(),
+                        top: -$primary_nav.outerHeight(),
                         left: 0,
                         right: 0
                     }).stop().animate({
@@ -39,15 +39,15 @@
 
                 // If scroll back to view, force original position
                 if ($(this).scrollTop() < $header.outerHeight() + $header.offset().top) {
-                    $homemenu.finish();
+                    $primary_nav.finish();
                 }
 
                 if (scrolled) {
 
                     scrolled = false;
 
-                    $homemenu.stop().animate({
-                        top: -$homemenu.outerHeight()
+                    $primary_nav.stop().animate({
+                        top: -$primary_nav.outerHeight()
                     }, {
                         complete: function () {
 

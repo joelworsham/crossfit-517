@@ -1,3 +1,24 @@
+.crossfit-dash-widget {
+  text-align: center; }
+  .crossfit-dash-widget .crossfit-dash-widget-icon {
+    display: block;
+    font-size: 100px;
+    color: inherit; }
+    .crossfit-dash-widget .crossfit-dash-widget-icon:hover {
+      color: #555; }
+    .crossfit-dash-widget .crossfit-dash-widget-icon .dashicons {
+      display: block;
+      font-size: inherit;
+      width: auto;
+      height: auto; }
+
+.crossfit-dash-widget .date {
+  font-family: "Diamante", sans-serif;
+  font-size: 2em;
+  padding: 0;
+  margin: 0;
+  line-height: normal; }
+
 @font-face {
   font-family: "Diamante";
   src: url('assets/fonts/diamante/diamante_bold-webfont.eot');

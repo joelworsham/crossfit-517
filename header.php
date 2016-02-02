@@ -30,30 +30,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?>>
 
-<?php if ( strpos( $_SERVER['HTTP_HOST'], '.dev' ) === false && ! is_user_logged_in() && ! current_user_can( 'manage_options' ) ) : ?>
-	<script>
-		(function (i, s, o, g, r, a, m) {
-			i['GoogleAnalyticsObject'] = r;
-			i[r] = i[r] || function () {
-					(i[r].q = i[r].q || []).push(arguments)
-				}, i[r].l = 1 * new Date();
-			a = s.createElement(o),
-				m = s.getElementsByTagName(o)[0];
-			a.async = 1;
-			a.src = g;
-			m.parentNode.insertBefore(a, m)
-		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-		ga('create', 'UA-71586566-1', 'auto');
-		ga('send', 'pageview');
-	</script>
-<?php endif; ?>
-
 <div id="wrapper">
 
 	<header id="site-header">
 
-		<nav class="top-nav">
+		<nav class="top-nav show-for-medium-up">
 			<?php
 			wp_nav_menu( array(
 				'theme_location'  => 'top-menu',
@@ -63,76 +44,80 @@ if ( ! defined( 'ABSPATH' ) ) {
 			?>
 		</nav>
 
-		<section class="logo-container">
+		<section class="logo-container small-only-text-center">
 
 			<div class="row">
-				<div class="columns small-12 medium-6">
+				<div class="logo columns small-12 medium-6">
 					<a href="<?php bloginfo( 'url' ); ?>">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-header.png"
-						     class="logo" alt="crossfit 517"/>
+						     alt="crossfit 517"/>
 					</a>
 				</div>
 
 				<div class="columns small-12 medium-6 medium-text-right">
-					<p class="address">
+					<div class="address">
 						<?php echo crossfit_sc_address( array( 'condensed' => 'yes' ) ); ?>
-					</p>
+					</div>
 
-					<p class="phone">
+					<div class="phone">
 						<?php echo crossfit_sc_phone(); ?>
-					</p>
+					</div>
 
-					<p class="get-started">
+					<div class="get-started show-for-medium-up">
 						<?php if ( $get_started_post = get_option( '_crossfit_getting_started_page' ) ) : ?>
 							<a href="<?php echo get_permalink( $get_started_post ); ?>" class="button radius large">
 								Get Started
 							</a>
 						<?php endif; ?>
-					</p>
+					</div>
 				</div>
 			</div>
 
 		</section>
 
-		<?php if ( is_front_page() ) : ?>
-
+		<nav id="primary-nav" class="show-for-medium-up">
 			<?php
-			$academy_page_ID = get_option( '_crossfit_athletic_academy_page', - 1 );
-			$count           = get_post( $academy_page_ID ) ? 5 : 4;
-			?>
-			<nav id="home-nav">
-				<ul class="menu row expand <?php echo $count == 5 ? 'five' : ''; ?>">
-					<li class="menu-item columns small-12 medium-6">
-						<a href="#wod">
-							WOD
-						</a>
-					</li>
-					<li class="menu-item columns small-12 medium-6">
-						<a href="#schedule">
-							Schedule
-						</a>
-					</li>
-					<li class="menu-item columns small-12 medium-6">
-						<a href="#about">
-							What is CrossFit?
-						</a>
-					</li>
-					<li class="menu-item columns small-12 medium-6">
-						<a href="#pricing">
-							Pricing
-						</a>
-					</li>
+			$theme_locations = get_nav_menu_locations();
+			$primary_menu    = get_term( $theme_locations['primary-menu'], 'nav_menu' );
 
-					<?php if ( $count == 5 ) : ?>
-						<li class="menu-item columns small-12 medium-6">
-							<a href="<?php echo get_permalink( $academy_page_ID ); ?>">
-								517 Athletic Academy
-							</a>
-						</li>
-					<?php endif; ?>
-				</ul>
-			</nav>
-		<?php endif; ?>
+			wp_nav_menu( array(
+				'theme_location' => 'primary-menu',
+				'container'      => 'false',
+				'menu_class'     => 'menu text-center small-block-grid-' .
+				                    min( $primary_menu->count, 2 ) .
+				                    ' medium-block-grid-' .
+				                    min( $primary_menu->count, 4 ) .
+				                    ' large-block-grid-' .
+				                    min( $primary_menu->count, 6 ),
+
+			) );
+			?>
+		</nav>
+
+		<nav id="mobile-nav" class="hide-for-medium-up">
+			<a href="#" class="toggle-mobile-nav">
+				<span class="icon-open fa fa-bars"></span>
+				<span class="icon-close fa fa-times"></span>
+			</a>
+
+			<div class="mobile-nav-menus">
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'primary-menu',
+					'container'      => 'false',
+					'menu_class'     => 'menu primary-nav',
+				) );
+				?>
+
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'top-menu',
+					'container'      => 'false',
+					'menu_class'     => 'menu secondary-nav',
+				) );
+				?>
+			</div>
+		</nav>
 
 	</header>
 

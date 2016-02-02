@@ -59,7 +59,7 @@ class CrossFit_Widget_WOD extends WP_Widget {
 			</p>
 
 			<div class="content">
-				<?php echo $wod->post_content; ?>
+				<?php echo do_shortcode( wpautop( $wod->post_content ) ); ?>
 			</div>
 		<?php
 		}

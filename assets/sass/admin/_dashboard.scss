@@ -1,0 +1,28 @@
+.crossfit-dash-widget {
+  text-align: center;
+
+  .crossfit-dash-widget-icon {
+    display: block;
+    font-size: 100px;
+    color: inherit;
+
+    &:hover {
+      color: #555;
+    }
+
+    .dashicons {
+      display: block;
+      font-size: inherit;
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+.crossfit-dash-widget .date {
+  font-family: "Diamante", sans-serif;
+  font-size: 2em;
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+}

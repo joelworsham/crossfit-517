@@ -12,3 +12,13 @@ Styles shared among all templates.
     list-style: disc;
   }
 }
+
+.post-title, .page-title {
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

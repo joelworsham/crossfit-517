@@ -24,7 +24,7 @@ if ( defined( 'THEME_VERSION' ) || defined( 'THEME_ID' ) || isset( $crossfit_fon
 /**
  * The theme's current version (make sure to keep this up to date!)
  */
-define( 'THEME_VERSION', '1.2.0' );
+define( 'THEME_VERSION', '1.1.0' );
 
 /**
  * The theme's ID (used in handlers).
@@ -188,7 +188,7 @@ add_action( 'wp_enqueue_scripts', function () {
  * @since 0.1.0
  */
 add_action( 'after_setup_theme', function () {
-	register_nav_menu( 'home-menu', 'Home' );
+	register_nav_menu( 'primary-menu', 'Primary' );
 	register_nav_menu( 'top-menu', 'Top' );
 	register_nav_menu( 'footer-left', 'Footer Left' );
 	register_nav_menu( 'footer-right', 'Footer Right' );
