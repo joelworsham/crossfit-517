@@ -136,9 +136,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</td>
 			</tr>
 
-			<?php if ( function_exists( 'Ninja_Forms' ) ) : ?>
+			<?php if ( class_exists( 'GFAPI' ) ) : ?>
 				<?php
-				$all_forms = Ninja_Forms()->forms()->get_all();
+				$all_forms = GFAPI::get_forms();
 
 				if ( ! empty( $all_forms ) ) :
 
@@ -153,12 +153,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<td>
 							<select id="_crossfit_getting_started_form" name="_crossfit_getting_started_form">
 								<?php
-								foreach ( $all_forms as $form_id ) :
-									$title = Ninja_Forms()->form( $form_id )->get_setting( 'form_title' );
+								foreach ( $all_forms as $form ) :
 									?>
-									<option value="<?php echo $form_id; ?>"
-										<?php selected( $form_id, $getting_started_form ); ?>>
-										<?php echo $title; ?>
+									<option value="<?php echo $form['id']; ?>"
+										<?php selected( $form['id'], $getting_started_form ); ?>>
+										<?php echo $form['title']; ?>
 									</option>
 								<?php endforeach; ?>
 							</select>

@@ -3,7 +3,7 @@ Theme Name: CrossFit
 Description: A kick-butt theme for CrossFit.
 Author: Joel Worsham
 Author URI: http://joelworsham.com
-Version: 1.1.0
+Version: 1.1.1
 */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
@@ -3465,6 +3465,8 @@ body.home .home-section > .row {
   padding: 3em 0; }
 body.home #more-info {
   color: #333333; }
+  body.home #more-info label {
+    color: inherit; }
 
 /*
 Styles shared among all templates.

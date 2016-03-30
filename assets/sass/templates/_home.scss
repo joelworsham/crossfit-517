@@ -95,5 +95,9 @@ body.home {
 
   #more-info {
     color: $dark-color;
+
+    label {
+      color: inherit;
+    }
   }
 }
