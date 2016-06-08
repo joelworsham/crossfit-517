@@ -154,7 +154,7 @@ if ( $wod ) :
 
 		<div class="row">
 			<div class="columns small-12">
-				<?php $posts = get_posts(); ?>
+				<?php $posts = get_posts( array( 'posts_per_page' => 5 ) ); ?>
 
 				<?php if ( $posts ) : ?>
 					<?php foreach ( $posts as $post ): setup_postdata( $post ); ?>
@@ -170,13 +170,19 @@ if ( $wod ) :
 							</div>
 
 							<p class="read-more">
-								<a href="<?php the_permalink(); ?>" class="button large">
+								<a href="<?php the_permalink(); ?>" class="button secondary">
 									Read More
 								</a>
 							</p>
 						</article>
 					<?php endforeach;
 					wp_reset_postdata(); ?>
+				<?php endif; ?>
+
+				<?php if ( $blog_page = get_option( 'page_for_posts' ) ) : ?>
+					<a href="<?php echo get_permalink( $blog_page ); ?>" class="button large">
+						See More Posts
+					</a>
 				<?php endif; ?>
 			</div>
 		</div>

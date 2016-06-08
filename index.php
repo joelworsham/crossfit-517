@@ -13,35 +13,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 ?>
+	<div class="row">
+		<div class="page-content columns small-12 medium-8">
 
-<?php if ( have_posts() ) : ?>
-	<?php while ( have_posts() ) : the_post(); ?>
+			<?php if ( have_posts() ) : ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-		<div class="row">
-			<article id="page-<?php the_ID(); ?>" <?php post_class( array(
-				'page-content',
-				'columns',
-				'small-12',
-				'medium-8'
-			) ); ?>>
+					<article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<h1 class="page-title">
-					<a href="<?php the_permalink(); ?>">
-						<?php the_title(); ?>
-					</a>
-				</h1>
+						<h1 class="page-title">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_title(); ?>
+							</a>
+						</h1>
 
-				<?php the_excerpt(); ?>
+						<?php the_excerpt(); ?>
 
-				<a href="<?php the_permalink(); ?>" class="button">
-					Read More
-				</a>
-			</article>
+						<a href="<?php the_permalink(); ?>" class="button">
+							Read More
+						</a>
+					</article>
 
-			<?php get_sidebar(); ?>
+				<?php endwhile; ?>
+
+				<?php
+				the_posts_pagination( array(
+					'prev_text'          => __( 'Previous page', 'twentysixteen' ),
+					'next_text'          => __( 'Next page', 'twentysixteen' ),
+					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
+				) );
+				?>
+			<?php endif; ?>
 		</div>
 
-	<?php endwhile; ?>
-<?php endif; ?>
+		<?php get_sidebar(); ?>
+	</div>
+
 <?php
 get_footer();
