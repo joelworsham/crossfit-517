@@ -10,6 +10,11 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
+
+$classes = get_posts( array(
+	'post_type'   => 'specialty-class',
+	'numberposts' => - 1,
+) );
 ?>
 
 <div class="wrap">
@@ -53,25 +58,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</select>
 			</label>
 
-			<label>
-				Fire <input type="radio" name="_class_type" value="fire"/>
-			</label>
-			|
-			<label>
-				Barbell <input type="radio" name="_class_type" value="barbell"/>
-			</label>
-			|
-			<label>
-				CougarFit <input type="radio" name="_class_type" value="cougarfit"/>
-			</label>
-			|
-			<label>
-				Foundations <input type="radio" name="_class_type" value="foundations"/>
-			</label>
-			|
-			<label>
-				Normal <input type="radio" name="_class_type" value="normal" checked/>
-			</label>
+			<?php if ( $classes ) : ?>
+				<label>
+					<span class="screen-reader-text">Type</span>
+					<select name="_class_type">
+						<option value="0">- Select a Class Type -</option>
+						<?php foreach ( $classes as $class ) : ?>
+							<option value="<?php echo $class->ID; ?>">
+								<?php echo $class->post_title; ?>
+							</option>
+						<?php endforeach; ?>
+					</select>
+				</label>
+			<?php endif; ?>
 
 			<input type="submit" class="button" value="Add Class"/>
 		</p>

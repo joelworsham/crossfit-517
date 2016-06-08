@@ -17,8 +17,7 @@
   }
 
   .class {
-    border-bottom: 1px solid lighten($dark-color, 10%);
-    padding: 1em 0;
+    margin: 1.5em 0;
     white-space: nowrap;
 
     @media #{$small-only} {
@@ -38,46 +37,12 @@
       color: #f00;
     }
 
-    &:last-of-type {
-      border: none;
+    .class-time {
+      font-weight: bold;
     }
 
-    &.fire {
-      color: mix(#f00, $light-color, 40);
-    }
+    .class-type {
 
-    &.barbell {
-      color: mix(#0D1C3A, $light-color, 40);
-    }
-
-    &.foundations {
-      color: mix(#184818, $light-color, 40);
-    }
-
-    &.cougarfit {
-      color: mix(#461046, $light-color, 40);
-    }
-
-    &.blank {
-      @media #{$small-only} {
-        display: none;
-      }
     }
   }
-}
-
-.fire-description {
-  color: mix(#f00, $light-color, 40);
-}
-
-.barbell-description {
-  color: mix(#0D1C3A, $light-color, 40);
-}
-
-.foundations-description {
-  color: mix(#184818, $light-color, 40);
-}
-
-.cougarfit-description {
-  color: mix(#461046, $light-color, 40);
 }

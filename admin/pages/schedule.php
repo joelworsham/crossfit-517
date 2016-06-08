@@ -11,32 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
 
-// Migrate FIRE to CLASS TYPE
-if ( ! get_option( '_crossfit_migrate_fire_to_type' ) ) {
-
-	update_option( '_crossfit_migrate_fire_to_type', true );
-
-	$classes = get_posts( array(
-		'post_type'   => 'class',
-		'numberposts' => - 1,
-	) );
-
-	if ( ! empty( $classes ) ) {
-		foreach ( $classes as $class ) {
-
-			if ( get_post_meta( $class->ID, '_fire', true ) ) {
-
-				delete_post_meta( $class->ID, '_fire' );
-				update_post_meta( $class->ID, '_class_type', 'fire' );
-			}
-
-			if ( ! get_post_meta( $class->ID, '_class_type', true ) ) {
-				update_post_meta( $class->ID, '_class_type', 'normal' );
-			}
-		}
-	}
-}
-
 // Save class
 if ( isset( $_POST['_crossfit_add_class_nonce'] ) &&
      wp_verify_nonce( $_POST['_crossfit_add_class_nonce'], 'add_class' )
@@ -51,7 +25,6 @@ if ( isset( $_POST['_crossfit_add_class_nonce'] ) &&
 		$ID = wp_insert_post( array(
 			'post_type'   => 'class',
 			'post_status' => 'publish',
-			'post_title'  => "WOD $day $time",
 		) );
 
 		update_post_meta( $ID, '_day', $day );

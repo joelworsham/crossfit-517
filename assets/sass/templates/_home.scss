@@ -40,6 +40,18 @@ body.home {
     font-size: 3em;
   }
 
+  #schedule {
+    h3 {
+      a {
+        color: inherit;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
   #blog {
     .post-title {
       a {

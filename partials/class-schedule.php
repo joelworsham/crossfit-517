@@ -25,7 +25,11 @@ if ( $class_posts ) {
 
 		$day  = get_post_meta( $class->ID, '_day', true );
 		$time = get_post_meta( $class->ID, '_time', true );
-		$type = get_post_meta( $class->ID, '_class_type', true );
+		$type = false;
+
+		if ( $type_post_ID = get_post_meta( $class->ID, '_class_type', true ) ) {
+			$type = get_the_title( $type_post_ID );
+		}
 
 		$classes[ $day ][ $time ] = array(
 			'ID'   => $class->ID,
@@ -68,6 +72,10 @@ if ( $classes ) :
 				foreach ( $times as $time ) :
 
 					$class = isset( $classes[ strtolower( $day ) ][ $time ] ) ? $classes[ strtolower( $day ) ][ $time ] : false;
+
+					if ( ! $class ) {
+						continue;
+					}
 					?>
 					<div class="class <?php echo $class ? $class['type'] : 'blank'; ?>">
 						<?php
@@ -76,18 +84,15 @@ if ( $classes ) :
 							<a href="<?php echo get_delete_post_link( $class['ID'] ); ?>">
 								<?php
 								echo date( 'g:iA', strtotime( $time ) );
-								echo $class['type'] != 'normal' ? "&nbsp;($class[type])" : '';
+								echo $class['type'] ? "&nbsp;($class[type])" : '';
 								echo '<span class="dashicons dashicons-trash"></span>';
 								?>
 							</a>
 							<?php
 						} elseif ( $class ) {
 
-							echo date( 'g:iA', strtotime( $time ) );
-							echo $class['type'] == 'fire' ? '&nbsp;<span class="fa fa-fire"></span>' : '';
-							echo $class['type'] == 'barbell' ? '&nbsp;BB' : '';
-							echo $class['type'] == 'cougarfit' ? '&nbsp;CF' : '';
-							echo $class['type'] == 'foundations' ? '&nbsp;FD' : '';
+							echo '<span class="class-time">' . date( 'g:iA', strtotime( $time ) ) . '</span>';
+							echo $class['type'] ? "<br/><span class=\"class-type\">($class[type])</span>" : '';
 						} else {
 							echo '&nbsp;';
 						}

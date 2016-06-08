@@ -119,21 +119,29 @@ if ( $wod ) :
 			<div class="columns small-12">
 				<?php include __DIR__ . '/partials/class-schedule.php'; ?>
 
-				<p class="fire-description">
-					<span class="fa fa-fire"></span> - Crossfit fire class that is geared towards cardio and movement.
-				</p>
+				<?php
+				$specialty_classes = get_posts( array(
+					'post_type'   => 'specialty-class',
+					'numberposts' => - 1,
+				) );
 
-				<p class="barbell-description">
-					BB - Barbell club specialty class.
-				</p>
+				if ( $specialty_classes && ! is_wp_error( $specialty_classes ) ) : ?>
+					<ul class="schedule-specialty-classes">
+						<?php foreach ( $specialty_classes as $post ) : ?>
+							<?php setup_postdata( $post ); ?>
+							<li>
+								<h3>
+									<a href="<?php the_permalink(); ?>">
+										<?php the_title(); ?>
+									</a>
+								</h3>
 
-				<p class="cougarfit-description">
-					CF - CougarFit specialty class.
-				</p>
-
-				<p class="foundations-description">
-					FD - Foundations specialty class.
-				</p>
+								<?php the_excerpt(); ?>
+							</li>
+							<?php wp_reset_postdata(); ?>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
 			</div>
 		</div>
 	</section>
@@ -150,23 +158,23 @@ if ( $wod ) :
 
 				<?php if ( $posts ) : ?>
 					<?php foreach ( $posts as $post ): setup_postdata( $post ); ?>
-							<article <?php post_class(); ?>>
-								<h3 class="post-title">
-									<a href="<?php the_permalink(); ?>">
-										<?php the_title(); ?>
-									</a>
-								</h3>
+						<article <?php post_class(); ?>>
+							<h3 class="post-title">
+								<a href="<?php the_permalink(); ?>">
+									<?php the_title(); ?>
+								</a>
+							</h3>
 
-								<div class="post-excerpt">
-									<?php the_excerpt(); ?>
-								</div>
+							<div class="post-excerpt">
+								<?php the_excerpt(); ?>
+							</div>
 
-								<p class="read-more">
-									<a href="<?php the_permalink(); ?>" class="button large">
-										Read More
-									</a>
-								</p>
-							</article>
+							<p class="read-more">
+								<a href="<?php the_permalink(); ?>" class="button large">
+									Read More
+								</a>
+							</p>
+						</article>
 					<?php endforeach;
 					wp_reset_postdata(); ?>
 				<?php endif; ?>

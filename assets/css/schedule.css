@@ -15,8 +15,7 @@ throughout this theme's SASS files.
   .crossfit-schedule .day-name {
     border-bottom: 2px solid gray; }
   .crossfit-schedule .class {
-    border-bottom: 1px solid #4d4d4d;
-    padding: 1em 0;
+    margin: 1.5em 0;
     white-space: nowrap; }
     @media only screen and (max-width: 40em) {
       .crossfit-schedule .class {
@@ -28,29 +27,6 @@ throughout this theme's SASS files.
       height: auto;
       opacity: 0;
       color: #f00; }
-    .crossfit-schedule .class:last-of-type {
-      border: none; }
-    .crossfit-schedule .class.fire {
-      color: #ea8484; }
-    .crossfit-schedule .class.barbell {
-      color: #898f9b; }
-    .crossfit-schedule .class.foundations {
-      color: #8ea18e; }
-    .crossfit-schedule .class.cougarfit {
-      color: #a08ba0; }
-    @media only screen and (max-width: 40em) {
-      .crossfit-schedule .class.blank {
-        display: none; } }
-
-.fire-description {
-  color: #ea8484; }
-
-.barbell-description {
-  color: #898f9b; }
-
-.foundations-description {
-  color: #8ea18e; }
-
-.cougarfit-description {
-  color: #a08ba0; }
+    .crossfit-schedule .class .class-time {
+      font-weight: bold; }
 /*# sourceMappingURL=schedule.css.map */
