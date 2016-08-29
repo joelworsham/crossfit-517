@@ -247,3 +247,6 @@ require_once __DIR__ . '/includes/widgets/image.php';
 require_once __DIR__ . '/includes/widgets/text-icon.php';
 require_once __DIR__ . '/includes/widgets/wod.php';
 require_once __DIR__ . '/includes/widgets/facebook.php';
+
+// WooCommerce Integration
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );

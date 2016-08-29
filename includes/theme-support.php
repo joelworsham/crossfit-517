@@ -29,6 +29,11 @@ add_theme_support( 'html5' );
 add_theme_support( 'title-tag' );
 
 /**
+ * WooCommerce support.
+ */
+add_theme_support( 'woocommerce' );
+
+/**
  * Adds support of post formats. Second argument sets which post formats are available.
  */
 //add_theme_support( 'post-formats', array(
