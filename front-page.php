@@ -26,9 +26,11 @@ get_header();
 
 <?php if ( $video_url = get_post_meta( get_the_ID(), '_crossfit_home_video_url', true ) ) : ?>
     <section class="home-section home-video">
-        <h2 class="home-section-title">
-            A Strong Community
-        </h2>
+		<?php if ( $video_section_title = get_post_meta( get_the_ID(), '_crossfit_home_video_title', true ) ) : ?>
+            <h2 class="home-section-title">
+				<?php echo $video_section_title; ?>
+            </h2>
+		<?php endif; ?>
 
         <div class="row">
 

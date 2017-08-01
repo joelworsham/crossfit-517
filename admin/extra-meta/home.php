@@ -40,10 +40,20 @@ function _crossfit_mb_home_extra_callback() {
 
 	wp_nonce_field( __FILE__, 'crossfit_mb_home_extra_nonce' );
 	?>
-    <h3>Home Video URL</h3>
+    <h3>Home Video</h3>
     <p>
+        <label>
+            Video URL<br/>
         <input type="text" class="regular-text" name="_crossfit_home_video_url"
                value="<?php echo esc_attr( get_post_meta( $post->ID, '_crossfit_home_video_url', true ) ); ?>"/>
+        </label>
+    </p>
+    <p>
+        <label>
+            Video Section Title<br/>
+            <input type="text" class="regular-text" name="_crossfit_home_video_title"
+                   value="<?php echo esc_attr( get_post_meta( $post->ID, '_crossfit_home_video_title', true ) ); ?>"/>
+        </label>
     </p>
 	<?php
 
@@ -122,6 +132,7 @@ function _crossfit_save_metaboxes_home( $post_ID ) {
 		'_ptable3_bullets',
 		'_ptable3_highlighted',
         '_crossfit_home_video_url',
+        '_crossfit_home_video_title',
 	);
 
 	foreach ( $options as $option ) {
