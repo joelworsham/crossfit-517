@@ -19,20 +19,33 @@ get_header();
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<article id="page-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    <article id="post-<?php the_ID(); ?>" <?php post_class( 'row' ); ?>>
 
-						<h1 class="page-title">
-							<a href="<?php the_permalink(); ?>">
-								<?php the_title(); ?>
-							</a>
-						</h1>
+						<?php if ( has_post_thumbnail() ): ?>
+                            <div class="columns small-12 medium-3 large-2">
+								<?php the_post_thumbnail(); ?>
+                            </div>
+						<?php endif; ?>
 
-						<?php the_excerpt(); ?>
+                        <div class="columns small-12 <?php echo has_post_thumbnail() ? 'medium-9 large-10' : ''; ?>">
+                            <h3 class="post-title">
+                                <a href="<?php the_permalink(); ?>">
+									<?php the_title(); ?>
+                                </a>
+                            </h3>
 
-						<a href="<?php the_permalink(); ?>" class="button">
-							Read More
-						</a>
-					</article>
+                            <div class="post-excerpt">
+								<?php the_excerpt(); ?>
+                            </div>
+
+                            <p class="read-more">
+                                <a href="<?php the_permalink(); ?>" class="button secondary">
+                                    Read More
+                                </a>
+                            </p>
+                        </div>
+
+                    </article>
 
 				<?php endwhile; ?>
 
