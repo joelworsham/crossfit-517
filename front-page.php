@@ -175,22 +175,32 @@ if ( $wod ) :
 
 				<?php if ( $posts ) : ?>
 					<?php foreach ( $posts as $post ): setup_postdata( $post ); ?>
-                        <article <?php post_class(); ?>>
-                            <h3 class="post-title">
-                                <a href="<?php the_permalink(); ?>">
-									<?php the_title(); ?>
-                                </a>
-                            </h3>
+                        <article <?php post_class( array( 'row' ) ); ?>>
 
-                            <div class="post-excerpt">
-								<?php the_excerpt(); ?>
+							<?php if ( has_post_thumbnail() ): ?>
+                                <div class="columns small-12 medium-3 large-2">
+									<?php the_post_thumbnail(); ?>
+                                </div>
+							<?php endif; ?>
+
+                            <div class="columns small-12 <?php echo has_post_thumbnail() ? 'medium-9 large-10' : ''; ?>">
+                                <h3 class="post-title">
+                                    <a href="<?php the_permalink(); ?>">
+										<?php the_title(); ?>
+                                    </a>
+                                </h3>
+
+                                <div class="post-excerpt">
+									<?php the_excerpt(); ?>
+                                </div>
+
+                                <p class="read-more">
+                                    <a href="<?php the_permalink(); ?>" class="button secondary">
+                                        Read More
+                                    </a>
+                                </p>
                             </div>
 
-                            <p class="read-more">
-                                <a href="<?php the_permalink(); ?>" class="button secondary">
-                                    Read More
-                                </a>
-                            </p>
                         </article>
 					<?php endforeach;
 					wp_reset_postdata(); ?>
@@ -250,64 +260,19 @@ if ( $wod ) :
         </h2>
 
         <div class="pricing-container row">
-            <div class="columns small-12">
-
-                <ul class="pricing-table premium">
-
-                    <li class="title">
-						<?php echo get_post_meta( get_the_ID(), 'ptable_premium_title', true ); ?>
-                    </li>
-
-                    <li class="price">
-                        <del>$<?php echo get_post_meta( get_the_ID(), 'ptable_premium_original_price', true ); ?></del>
-                        $<?php echo get_post_meta( get_the_ID(), 'ptable_premium_price', true ); ?>
-                        <p class="price-sub">
-                            * with 24 - hour Powerhouse Gym membership
-                        </p>
-                    </li>
-
-                    <li class="content">
-                        <div class="bullets columns small-12 medium-6">
-                            <ul>
-								<?php
-								$bullets = get_post_meta( get_the_ID(), 'ptable_premium_bullets', true );
-								$bullets = $bullets ? explode( "\n", $bullets ) : false;
-
-								if ( $bullets ) {
-									foreach ( $bullets as $bullet ) {
-										?>
-                                        <li class="bullet-item"><?php echo $bullet; ?></li>
-										<?php
-									}
-								}
-								?>
-                            </ul>
-                        </div>
-                        <div class="description columns small-12 medium-6">
-							<?php echo wpautop( get_post_meta( get_the_ID(), 'ptable_premium_description', true ) ); ?>
-                        </div>
-                    </li>
-					<?php
-					if ( $get_started_post = get_option( '_crossfit_getting_started_page' ) ) :
-						?>
-                        <li class="cta-button">
-                            <a class="button radius" href="<?php echo get_permalink( $get_started_post ); ?>">
-                                Get Started!
-                            </a>
-                        </li>
-					<?php endif; ?>
-
-                </ul>
-
-            </div>
 
 			<?php
-			$tables = array(
-				'platinum' => 'Platinum',
-				'gold'     => 'Gold',
+			$tables                    = array(
+				'unlimited' => 'Unlimited',
+				'combo'     => 'Combo',
 			);
 
 			foreach ( $tables as $table_ID => $table_name ) :
+
+				$ptable_price = get_post_meta( $post->ID, "ptable_{$table_ID}_price", true );
+				$ptable_original_price = get_post_meta( $post->ID, "ptable_{$table_ID}_original_price", true );
+				$ptable_bullets        = get_post_meta( $post->ID, "ptable_{$table_ID}_bullets", true );
+				$ptable_title          = get_post_meta( $post->ID, "ptable_{$table_ID}_title", true );
 				?>
 
                 <div class="columns small-12 medium-6">
@@ -315,19 +280,28 @@ if ( $wod ) :
                     <ul class="pricing-table <?php echo $table_ID; ?>">
 
                         <li class="title">
-							<?php echo $table_name; ?>
+							<?php echo $ptable_title; ?>
                         </li>
 
                         <li class="price">
-                            $<?php echo get_post_meta( get_the_ID(), "ptable_{$table_ID}_price", true ); ?>
+							<?php if ( $ptable_original_price ) : ?>
+                                <del>$<?php echo esc_attr( $ptable_original_price ); ?></del>
+							<?php endif; ?>
+
+                            $<?php echo esc_attr( $ptable_price ); ?>
+
+							<?php if ( $table_ID === 'combo' ) : ?>
+                                <p class="price-sub">
+                                    * with 24 - hour Powerhouse Gym membership
+                                </p>
+							<?php endif; ?>
                         </li>
 
 						<?php
-						$bullets = get_post_meta( get_the_ID(), "ptable_{$table_ID}_bullets", true );
-						$bullets = $bullets ? explode( "\n", $bullets ) : false;
+						$ptable_bullets = $ptable_bullets ? explode( "\n", $ptable_bullets ) : false;
 
-						if ( $bullets ) {
-							foreach ( $bullets as $bullet ) {
+						if ( $ptable_bullets ) {
+							foreach ( $ptable_bullets as $bullet ) {
 								?>
                                 <li class="bullet-item"><?php echo $bullet; ?></li>
 								<?php

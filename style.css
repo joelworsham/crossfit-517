@@ -3650,43 +3650,28 @@ body.home #wod {
   body.home #wod * {
     text-align: center !important; }
 
-body.home #pricing .pricing-container {
-  width: 800px;
-  max-width: 100%; }
-
 body.home #pricing .pricing-table {
   background: #fff; }
   body.home #pricing .pricing-table .title {
     color: #fff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); }
-  body.home #pricing .pricing-table.premium .content:after {
+  body.home #pricing .pricing-table .content:after {
     content: '';
     clear: both;
     display: table; }
-  body.home #pricing .pricing-table.premium .description {
-    border-bottom: none; }
-    body.home #pricing .pricing-table.premium .description p {
-      color: #333333;
-      font-size: 0.875rem;
-      text-align: left;
-      line-height: 1.5; }
-  body.home #pricing .pricing-table.premium .title {
+  body.home #pricing .pricing-table .title {
     background: #EE9236;
     background: linear-gradient(to right, #ee9137 0%, #ffc791 100%); }
-  body.home #pricing .pricing-table.premium .price .price-sub {
+  body.home #pricing .pricing-table .bullet-item {
+    line-height: 1.5; }
+  body.home #pricing .pricing-table .price .price-sub {
     color: #aaa;
     font-style: italic;
     font-family: "Open Sans", sans-serif;
     margin-bottom: 0;
     font-size: 0.85rem; }
-  body.home #pricing .pricing-table.premium .price del {
+  body.home #pricing .pricing-table .price del {
     color: #aaa; }
-  body.home #pricing .pricing-table.platinum .title {
-    background: #7d7d7d;
-    background: linear-gradient(to right, #7d7d7d 0%, #cecece 100%); }
-  body.home #pricing .pricing-table.gold .title {
-    background: #b78532;
-    background: linear-gradient(to right, #b78532 0%, #facf86 100%); }
 
 @media only screen and (max-width: 40em) {
   body.home .home-section:first-of-type > .row {

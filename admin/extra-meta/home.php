@@ -57,54 +57,42 @@ function _crossfit_mb_home_extra_callback() {
     </p>
 	<?php
 
+	if ( get_post_meta( $post->ID, 'ptable_premium_title', true ) ) {
+
+		update_post_meta( $post->ID, 'ptable_combo_price', get_post_meta( $post->ID, 'ptable_premium_price', true ) );
+		update_post_meta( $post->ID, 'ptable_combo_bullets', get_post_meta( $post->ID, 'ptable_premium_bullets', true ) );
+		update_post_meta( $post->ID, 'ptable_combo_original_price', get_post_meta( $post->ID, 'ptable_premium_original_price', true ) );
+		update_post_meta( $post->ID, 'ptable_combo_title', get_post_meta( $post->ID, 'ptable_premium_title', true ) );
+
+		delete_post_meta( $post->ID, 'ptable_premium_price' );
+		delete_post_meta( $post->ID, 'ptable_premium_bullets' );
+		delete_post_meta( $post->ID, 'ptable_premium_original_price' );
+		delete_post_meta( $post->ID, 'ptable_premium_description' );
+		delete_post_meta( $post->ID, 'ptable_premium_title' );
+	}
+
 	$tables = array(
-		'gold'     => 'Gold',
-		'platinum' => 'Platinum',
-		'premium'  => 'Premium',
+		'unlimited' => 'Unlimited',
+		'combo'     => 'Combo',
 	);
 	foreach ( $tables as $table_ID => $table_name ) {
 
-		$ptable_price   = get_post_meta( $post->ID, "ptable_{$table_ID}_price", true );
-		$ptable_bullets = get_post_meta( $post->ID, "ptable_{$table_ID}_bullets", true );
+		$ptable_price          = get_post_meta( $post->ID, "ptable_{$table_ID}_price", true );
+		$ptable_original_price = get_post_meta( $post->ID, "ptable_{$table_ID}_original_price", true );
+		$ptable_bullets        = get_post_meta( $post->ID, "ptable_{$table_ID}_bullets", true );
+		$ptable_title          = get_post_meta( $post->ID, "ptable_{$table_ID}_title", true );
 		?>
         <h3>Pricing Table <?php echo $table_name ?></h3>
-		<?php if ( $table_ID === 'premium' ) : ?>
-			<?php $ptable_title   = get_post_meta( $post->ID, "ptable_{$table_ID}_title", true ); ?>
-			<?php $ptable_original_price   = get_post_meta( $post->ID, "ptable_{$table_ID}_original_price", true ); ?>
-			<?php $ptable_description   = get_post_meta( $post->ID, "ptable_{$table_ID}_description", true ); ?>
-            <hr/>
-            <p class="description">
-                Premium Table Custom Options
-            </p>
-            <p>
-                <label>
-                    Title
-                    <br/>
-                    <input type="text" class="regular-text" name="ptable_<?php echo $table_ID; ?>_title"
-                           value="<?php echo $ptable_title; ?>"/>
-                </label>
+        <hr/>
+        <p>
+            <label>
+                Title
                 <br/>
-            </p>
-            <p>
-                <label>
-                    Description
-                    <br/>
-                    <textarea name="ptable_<?php echo $table_ID; ?>_description" style="height: 8em; width: 25em; max-width: 100%;"
-                    ><?php echo $ptable_description; ?></textarea>
-                </label>
-                <br/>
-            </p>
-            <p>
-                <label>
-                    Original Price
-                    <br/>
-                    <input type="text" class="regular-text" name="ptable_<?php echo $table_ID; ?>_original_price"
-                           value="<?php echo $ptable_original_price; ?>"/>
-                </label>
-                <br/>
-            </p>
-            <hr/>
-		<?php endif; ?>
+                <input type="text" class="regular-text" name="ptable_<?php echo $table_ID; ?>_title"
+                       value="<?php echo $ptable_title; ?>"/>
+            </label>
+            <br/>
+        </p>
         <p>
             <label>
                 Price
@@ -115,9 +103,18 @@ function _crossfit_mb_home_extra_callback() {
         </p>
         <p>
             <label>
+                Original Price (optional)
+                <br/>
+                <input type="text" class="regular-text" name="ptable_<?php echo $table_ID; ?>_original_price"
+                       value="<?php echo $ptable_original_price; ?>"/>
+            </label>
+        </p>
+        <p>
+            <label>
                 Bullets
                 <br/>
-                <textarea name="ptable_<?php echo $table_ID; ?>_bullets" style="height: 8em; width: 25em; max-width: 100%;"
+                <textarea name="ptable_<?php echo $table_ID; ?>_bullets"
+                          style="height: 8em; width: 25em; max-width: 100%;"
                 ><?php echo $ptable_bullets; ?></textarea>
             </label>
         </p>
@@ -144,15 +141,14 @@ function _crossfit_save_metaboxes_home( $post_ID ) {
 	}
 
 	$options = array(
-		'ptable_gold_price',
-		'ptable_gold_bullets',
-		'ptable_platinum_price',
-		'ptable_platinum_bullets',
-		'ptable_premium_price',
-		'ptable_premium_bullets',
-		'ptable_premium_original_price',
-		'ptable_premium_description',
-		'ptable_premium_title',
+		'ptable_unlimited_price',
+		'ptable_unlimited_original_price',
+		'ptable_unlimited_bullets',
+		'ptable_unlimited_title',
+		'ptable_combo_price',
+		'ptable_combo_original_price',
+		'ptable_combo_bullets',
+		'ptable_combo_title',
 		'_crossfit_home_video_url',
 		'_crossfit_home_video_title',
 	);
