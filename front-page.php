@@ -249,27 +249,81 @@ if ( $wod ) :
             Pricing
         </h2>
 
-        <div class="row">
+        <div class="pricing-container row">
+            <div class="columns small-12">
+
+                <ul class="pricing-table premium">
+
+                    <li class="title">
+						<?php echo get_post_meta( get_the_ID(), 'ptable_premium_title', true ); ?>
+                    </li>
+
+                    <li class="price">
+                        <del>$<?php echo get_post_meta( get_the_ID(), 'ptable_premium_original_price', true ); ?></del>
+                        $<?php echo get_post_meta( get_the_ID(), 'ptable_premium_price', true ); ?>
+                        <p class="price-sub">
+                            * with 24 - hour Powerhouse Gym membership
+                        </p>
+                    </li>
+
+                    <li class="content">
+                        <div class="bullets columns small-12 medium-6">
+                            <ul>
+								<?php
+								$bullets = get_post_meta( get_the_ID(), 'ptable_premium_bullets', true );
+								$bullets = $bullets ? explode( "\n", $bullets ) : false;
+
+								if ( $bullets ) {
+									foreach ( $bullets as $bullet ) {
+										?>
+                                        <li class="bullet-item"><?php echo $bullet; ?></li>
+										<?php
+									}
+								}
+								?>
+                            </ul>
+                        </div>
+                        <div class="description columns small-12 medium-6">
+							<?php echo wpautop( get_post_meta( get_the_ID(), 'ptable_premium_description', true ) ); ?>
+                        </div>
+                    </li>
+					<?php
+					if ( $get_started_post = get_option( '_crossfit_getting_started_page' ) ) :
+						?>
+                        <li class="cta-button">
+                            <a class="button radius" href="<?php echo get_permalink( $get_started_post ); ?>">
+                                Get Started!
+                            </a>
+                        </li>
+					<?php endif; ?>
+
+                </ul>
+
+            </div>
 
 			<?php
-			for ( $i = 1; $i < 4; $i ++ ) :
-				$highlighted = get_post_meta( get_the_ID(), "_ptable{$i}_highlighted", true ) ? true : false;
+			$tables = array(
+				'platinum' => 'Platinum',
+				'gold'     => 'Gold',
+			);
+
+			foreach ( $tables as $table_ID => $table_name ) :
 				?>
 
-                <div class="columns small-12 medium-4">
+                <div class="columns small-12 medium-6">
 
-                    <ul class="pricing-table <?php echo $highlighted ? 'highlighted' : ''; ?>">
+                    <ul class="pricing-table <?php echo $table_ID; ?>">
 
                         <li class="title">
-							<?php echo get_post_meta( get_the_ID(), "_ptable{$i}_title", true ); ?>
+							<?php echo $table_name; ?>
                         </li>
 
                         <li class="price">
-                            $<?php echo get_post_meta( get_the_ID(), "_ptable{$i}_price", true ); ?>
+                            $<?php echo get_post_meta( get_the_ID(), "ptable_{$table_ID}_price", true ); ?>
                         </li>
 
 						<?php
-						$bullets = get_post_meta( get_the_ID(), "_ptable{$i}_bullets", true );
+						$bullets = get_post_meta( get_the_ID(), "ptable_{$table_ID}_bullets", true );
 						$bullets = $bullets ? explode( "\n", $bullets ) : false;
 
 						if ( $bullets ) {
@@ -293,7 +347,7 @@ if ( $wod ) :
 
                 </div>
 
-			<?php endfor; ?>
+			<?php endforeach; ?>
 
         </div>
     </section>

@@ -82,10 +82,70 @@ body.home {
   }
 
   #pricing {
+    .pricing-container{
+      width: 800px;
+      max-width: 100%;
+    }
+
     .pricing-table {
-      &.highlighted {
+      background: #fff;
+
+      .title {
+        color: #fff;
+        text-shadow: 2px 2px 5px rgba(#000, 0.2)
+      }
+
+      &.premium {
+        .content {
+          &:after {
+            content: '';
+            clear: both;
+            display: table;
+          }
+        }
+
+        .description {
+          border-bottom: none;
+
+          p {
+            color: #333333;
+            font-size: 0.875rem;
+            text-align: left;
+            line-height: 1.5;
+          }
+        }
+
         .title {
           background: $primary-color;
+          background: linear-gradient(to right, #ee9137 0%,#ffc791 100%);
+        }
+
+        .price {
+          .price-sub {
+            color: #aaa;
+            font-style: italic;
+            font-family: $body-font-family;
+            margin-bottom: 0;
+            font-size: 0.85rem;
+          }
+
+          del {
+            color: #aaa;
+          }
+        }
+      }
+
+      &.platinum {
+        .title {
+          background: #7d7d7d;
+          background: linear-gradient(to right, #7d7d7d 0%,#cecece 100%);
+        }
+      }
+
+      &.gold {
+        .title {
+          background: #b78532;
+          background: linear-gradient(to right, #b78532 0%,#facf86 100%);
         }
       }
     }

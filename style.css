@@ -2100,8 +2100,7 @@ button, input[type="submit"], .button {
   background: #bbb;
   border-color: #969696;
   color: #333333;
-  -webkit-transition: background-color 300ms ease-out;
-          transition: background-color 300ms ease-out; }
+  transition: background-color 300ms ease-out; }
   button:hover, input[type="submit"]:hover, button:focus, input[type="submit"]:focus, .button:hover, .button:focus {
     background: #969696; }
   button:hover, input[type="submit"]:hover, button:focus, input[type="submit"]:focus, .button:hover, .button:focus {
@@ -2961,8 +2960,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   height: 2.3125rem;
   width: 100%;
   box-sizing: border-box;
-  -webkit-transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
-          transition: box-shadow 0.45s, border-color 0.45s ease-in-out; }
+  transition: box-shadow 0.45s, border-color 0.45s ease-in-out; }
   input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="color"]:focus, textarea:focus {
     box-shadow: 0 0 5px #999999;
     border-color: #999999; }
@@ -3214,8 +3212,7 @@ throughout this theme's SASS files.
 @since 0.1.0
 */
 a {
-  -webkit-transition: color 300ms;
-          transition: color 300ms; }
+  transition: color 300ms; }
   a.color-invert {
     color: inherit; }
     a.color-invert:hover {
@@ -3528,8 +3525,7 @@ throughout this theme's SASS files.
         border: 1px solid #aaa;
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
         z-index: 100;
-        -webkit-transition: visibility 300ms, opacity 300ms;
-                transition: visibility 300ms, opacity 300ms; }
+        transition: visibility 300ms, opacity 300ms; }
         #jc-calendar .calendar-table .day li .event-tooltip .event-details {
           color: #444; }
           #jc-calendar .calendar-table .day li .event-tooltip .event-details p {
@@ -3654,8 +3650,43 @@ body.home #wod {
   body.home #wod * {
     text-align: center !important; }
 
-body.home #pricing .pricing-table.highlighted .title {
-  background: #EE9236; }
+body.home #pricing .pricing-container {
+  width: 800px;
+  max-width: 100%; }
+
+body.home #pricing .pricing-table {
+  background: #fff; }
+  body.home #pricing .pricing-table .title {
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); }
+  body.home #pricing .pricing-table.premium .content:after {
+    content: '';
+    clear: both;
+    display: table; }
+  body.home #pricing .pricing-table.premium .description {
+    border-bottom: none; }
+    body.home #pricing .pricing-table.premium .description p {
+      color: #333333;
+      font-size: 0.875rem;
+      text-align: left;
+      line-height: 1.5; }
+  body.home #pricing .pricing-table.premium .title {
+    background: #EE9236;
+    background: linear-gradient(to right, #ee9137 0%, #ffc791 100%); }
+  body.home #pricing .pricing-table.premium .price .price-sub {
+    color: #aaa;
+    font-style: italic;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 0;
+    font-size: 0.85rem; }
+  body.home #pricing .pricing-table.premium .price del {
+    color: #aaa; }
+  body.home #pricing .pricing-table.platinum .title {
+    background: #7d7d7d;
+    background: linear-gradient(to right, #7d7d7d 0%, #cecece 100%); }
+  body.home #pricing .pricing-table.gold .title {
+    background: #b78532;
+    background: linear-gradient(to right, #b78532 0%, #facf86 100%); }
 
 @media only screen and (max-width: 40em) {
   body.home .home-section:first-of-type > .row {

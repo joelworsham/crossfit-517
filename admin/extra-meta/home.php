@@ -44,8 +44,8 @@ function _crossfit_mb_home_extra_callback() {
     <p>
         <label>
             Video URL<br/>
-        <input type="text" class="regular-text" name="_crossfit_home_video_url"
-               value="<?php echo esc_attr( get_post_meta( $post->ID, '_crossfit_home_video_url', true ) ); ?>"/>
+            <input type="text" class="regular-text" name="_crossfit_home_video_url"
+                   value="<?php echo esc_attr( get_post_meta( $post->ID, '_crossfit_home_video_url', true ) ); ?>"/>
         </label>
     </p>
     <p>
@@ -57,27 +57,59 @@ function _crossfit_mb_home_extra_callback() {
     </p>
 	<?php
 
-	for ( $i = 1; $i < 4; $i ++ ) {
+	$tables = array(
+		'gold'     => 'Gold',
+		'platinum' => 'Platinum',
+		'premium'  => 'Premium',
+	);
+	foreach ( $tables as $table_ID => $table_name ) {
 
-		$ptable_title       = get_post_meta( $post->ID, "_ptable{$i}_title", true );
-		$ptable_price       = get_post_meta( $post->ID, "_ptable{$i}_price", true );
-		$ptable_bullets     = get_post_meta( $post->ID, "_ptable{$i}_bullets", true );
-		$ptable_highlighted = get_post_meta( $post->ID, "_ptable{$i}_highlighted", true );
+		$ptable_price   = get_post_meta( $post->ID, "ptable_{$table_ID}_price", true );
+		$ptable_bullets = get_post_meta( $post->ID, "ptable_{$table_ID}_bullets", true );
 		?>
-        <h3>Pricing Table <?php echo $i; ?></h3>
-        <p>
-            <label>
-                Title
+        <h3>Pricing Table <?php echo $table_name ?></h3>
+		<?php if ( $table_ID === 'premium' ) : ?>
+			<?php $ptable_title   = get_post_meta( $post->ID, "ptable_{$table_ID}_title", true ); ?>
+			<?php $ptable_original_price   = get_post_meta( $post->ID, "ptable_{$table_ID}_original_price", true ); ?>
+			<?php $ptable_description   = get_post_meta( $post->ID, "ptable_{$table_ID}_description", true ); ?>
+            <hr/>
+            <p class="description">
+                Premium Table Custom Options
+            </p>
+            <p>
+                <label>
+                    Title
+                    <br/>
+                    <input type="text" class="regular-text" name="ptable_<?php echo $table_ID; ?>_title"
+                           value="<?php echo $ptable_title; ?>"/>
+                </label>
                 <br/>
-                <input type="text" class="regular-text" name="_ptable<?php echo $i; ?>_title"
-                       value="<?php echo $ptable_title; ?>"/>
-            </label>
-        </p>
+            </p>
+            <p>
+                <label>
+                    Description
+                    <br/>
+                    <textarea name="ptable_<?php echo $table_ID; ?>_description" style="height: 8em; width: 25em; max-width: 100%;"
+                    ><?php echo $ptable_description; ?></textarea>
+                </label>
+                <br/>
+            </p>
+            <p>
+                <label>
+                    Original Price
+                    <br/>
+                    <input type="text" class="regular-text" name="ptable_<?php echo $table_ID; ?>_original_price"
+                           value="<?php echo $ptable_original_price; ?>"/>
+                </label>
+                <br/>
+            </p>
+            <hr/>
+		<?php endif; ?>
         <p>
             <label>
                 Price
                 <br/>
-                <input type="text" class="regular-text" name="_ptable<?php echo $i; ?>_price"
+                <input type="text" class="regular-text" name="ptable_<?php echo $table_ID; ?>_price"
                        value="<?php echo $ptable_price; ?>"/>
             </label>
         </p>
@@ -85,15 +117,8 @@ function _crossfit_mb_home_extra_callback() {
             <label>
                 Bullets
                 <br/>
-                <textarea name="_ptable<?php echo $i; ?>_bullets" style="height: 8em; width: 25em; max-width: 100%;"
+                <textarea name="ptable_<?php echo $table_ID; ?>_bullets" style="height: 8em; width: 25em; max-width: 100%;"
                 ><?php echo $ptable_bullets; ?></textarea>
-            </label>
-        </p>
-        <p>
-            <label>
-                Highighted
-                <input type="checkbox" name="_ptable<?php echo $i; ?>_highlighted"
-                       value="1" <?php checked( '1', $ptable_highlighted ); ?>/>
             </label>
         </p>
 		<?php
@@ -119,20 +144,17 @@ function _crossfit_save_metaboxes_home( $post_ID ) {
 	}
 
 	$options = array(
-		'_ptable1_title',
-		'_ptable1_price',
-		'_ptable1_bullets',
-		'_ptable1_highlighted',
-		'_ptable2_title',
-		'_ptable2_price',
-		'_ptable2_bullets',
-		'_ptable2_highlighted',
-		'_ptable3_title',
-		'_ptable3_price',
-		'_ptable3_bullets',
-		'_ptable3_highlighted',
-        '_crossfit_home_video_url',
-        '_crossfit_home_video_title',
+		'ptable_gold_price',
+		'ptable_gold_bullets',
+		'ptable_platinum_price',
+		'ptable_platinum_bullets',
+		'ptable_premium_price',
+		'ptable_premium_bullets',
+		'ptable_premium_original_price',
+		'ptable_premium_description',
+		'ptable_premium_title',
+		'_crossfit_home_video_url',
+		'_crossfit_home_video_title',
 	);
 
 	foreach ( $options as $option ) {

@@ -5,9 +5,9 @@
     "grunt": "~1.0",
     "grunt-sass": "~2.0",
     "grunt-autoprefixer": "~3.0",
-    "grunt-contrib-uglify": "~3.0",
+    "grunt-contrib-uglify": "~3.1",
     "grunt-contrib-watch": "~1.0",
     "grunt-notify": "~0.4",
-    "matchdep": "~1.0"
+    "matchdep": "~2.0"
   }
 }
