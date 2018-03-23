@@ -46,7 +46,7 @@ $classes = get_posts( array(
 				<span class="screen-reader-text">Time</span>
 				<select name="_time">
 					<option value="0">- Select a Time -</option>
-					<?php for ( $i = 6; $i <= 21; $i ++ ): ?>
+					<?php for ( $i = 0; $i <= 23; $i ++ ): ?>
 						<option value="<?php echo "$i:00"; ?>">
 							<?php echo date( 'h:iA', strtotime( "$i:00" ) ); ?>
 						</option>
