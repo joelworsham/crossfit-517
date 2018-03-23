@@ -153,7 +153,7 @@ if ( $wod ) :
                                     </a>
                                 </h3>
 
-								<?php the_excerpt(); ?>
+								<?php the_content(); ?>
                             </li>
 							<?php wp_reset_postdata(); ?>
 						<?php endforeach; ?>
