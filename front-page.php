@@ -153,7 +153,11 @@ if ( $wod ) :
                                     </a>
                                 </h3>
 
-								<?php the_content(); ?>
+								<?php the_excerpt(); ?>
+
+                                <a href="<?php the_permalink(); ?>">
+                                    Read More
+                                </a>
                             </li>
 							<?php wp_reset_postdata(); ?>
 						<?php endforeach; ?>
