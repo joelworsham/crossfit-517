@@ -36,7 +36,7 @@ define( 'THEME_ID', 'my_theme' );
  */
 $crossfit_fonts = array(
 	'Font Awesome' => '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
-	'Open Sans' => 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700',
+	'Open Sans' => 'https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700',
 );
 
 // Extra image sizes
