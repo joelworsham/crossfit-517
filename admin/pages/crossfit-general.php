@@ -30,6 +30,7 @@ function _crossfit_page_crossfit_settings_output() {
 // Register settings
 add_action( 'admin_init', function() {
 
+	register_setting( 'crossfit-settings', '_crossfit_reservation_link' );
 	register_setting( 'crossfit-settings', '_crossfit_phone' );
 	register_setting( 'crossfit-settings', '_crossfit_email' );
 	register_setting( 'crossfit-settings', '_crossfit_address' );
@@ -37,5 +38,4 @@ add_action( 'admin_init', function() {
 	register_setting( 'crossfit-settings', '_crossfit_getting_started_page' );
 	register_setting( 'crossfit-settings', '_crossfit_home_slider' );
 	register_setting( 'crossfit-settings', '_crossfit_getting_started_form' );
-	register_setting( 'crossfit-settings', '_crossfit_athletic_academy_page' );
 });

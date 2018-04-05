@@ -21,6 +21,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php settings_fields( 'crossfit-settings' ); ?>
 
 		<table class="form-table">
+            <tr valign="top">
+                <th scope="row">
+                    <label for="_crossfit_reservation_link">
+                        Class Reservation Link
+                    </label>
+                </th>
+                <td>
+                    <input type="text" name="_crossfit_reservation_link" id="_crossfit_reservation_link"
+                           class="regular-text"
+                           value="<?php echo esc_attr( get_option( '_crossfit_reservation_link' ) ); ?>"/>
+                </td>
+            </tr>
 			<tr valign="top">
 				<th scope="row">
 					<label for="_crossfit_phone">
@@ -95,25 +107,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input type="text" name="_crossfit_home_slider" id="_crossfit_home_slider"
 					       class="regular-text"
 					       value="<?php echo get_option( '_crossfit_home_slider' ); ?>"/>
-				</td>
-			</tr>
-
-			<tr valign="top">
-				<th scope="row">
-					<label for="_crossfit_athletic_academy_page">
-						517 Athletic Academy Page
-					</label>
-				</th>
-				<td>
-					<?php
-					$athletic_academy_post = get_option( '_crossfit_athletic_academy_page' );
-					wp_dropdown_pages( array(
-						'id'               => '_crossfit_athletic_academy_page',
-						'name'             => '_crossfit_athletic_academy_page',
-						'selected'         => $athletic_academy_post ? $athletic_academy_post : 0,
-						'show_option_none' => '- Select a Page -',
-					) );
-					?>
 				</td>
 			</tr>
 
