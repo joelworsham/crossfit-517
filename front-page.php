@@ -18,11 +18,17 @@ add_action( 'wp_enqueue_scripts', function () {
 get_header();
 ?>
 
-<?php if ( function_exists( 'layerslider' ) && $slider = get_option( '_crossfit_home_slider' ) ) : ?>
-    <section class="home-slider">
-		<?php layerslider( $slider ); ?>
-    </section>
-<?php endif; ?>
+<section class="home-section home-intro">
+    <div class="row">
+        <div class="columns small-12 medium-6">
+            <h2>Home of the 6 Week Challenge!</h2>
+            <h3>We have hundreds of success stories. You can be next!</h3>
+        </div>
+        <div class="columns small-12 medium-6">
+            <?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '15865' ); } ?>
+        </div>
+    </div>
+</section>
 
 <?php if ( $video_url = get_post_meta( get_the_ID(), '_crossfit_home_video_url', true ) ) : ?>
     <section class="home-section home-video">

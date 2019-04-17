@@ -28,6 +28,10 @@ ul {
   list-style: none;
 }
 
+iframe {
+  max-width: 100%;
+}
+
 input[type="submit"] {
   @extend button;
   @extend .large;

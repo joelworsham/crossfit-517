@@ -3225,6 +3225,9 @@ ul {
   margin: 0;
   list-style: none; }
 
+iframe {
+  max-width: 100%; }
+
 ::-moz-selection {
   background: #EE9236;
   color: #333333; }
