@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 						<?php if ( $get_started_post = get_option( '_crossfit_getting_started_page' ) ) : ?>
                             <a href="<?php echo get_permalink( $get_started_post ); ?>" class="button radius large">
-                                Get Started
+                                Book a FREE Intro
                             </a>
 						<?php endif; ?>
                     </div>

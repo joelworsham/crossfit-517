@@ -324,7 +324,7 @@ if ( $wod ) :
 							?>
                             <li class="cta-button">
                                 <a class="button radius" href="<?php echo get_permalink( $get_started_post ); ?>">
-                                    Book a FREE Intro
+                                    Get Started!
                                 </a>
                             </li>
 						<?php endif; ?>
