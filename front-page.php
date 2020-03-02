@@ -19,10 +19,10 @@ get_header();
 ?>
 
 <section class="home-section home-intro">
-    <div class="row">
+    <div class="row expand" style="max-width: 1400px;">
         <div class="columns small-12 medium-6">
-            <h2>Home of the 6 Week Challenge!</h2>
-            <h3>We have hundreds of success stories. You can be next!</h3>
+            <h2 style="color: #EE9236;">Home of the 6 Week Challenge!</h2>
+            <p>We have hundreds of success stories. <strong><em>You</em></strong> can be next!</p>
         </div>
         <div class="columns small-12 medium-6">
             <?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '15865' ); } ?>
@@ -189,7 +189,9 @@ if ( $wod ) :
 
 							<?php if ( has_post_thumbnail() ): ?>
                                 <div class="columns small-12 medium-3 large-2">
-									<?php the_post_thumbnail(); ?>
+                                    <div style="margin-bottom: 1rem;">
+									    <?php the_post_thumbnail(); ?>
+                                    </div>
                                 </div>
 							<?php endif; ?>
 
@@ -322,7 +324,7 @@ if ( $wod ) :
 							?>
                             <li class="cta-button">
                                 <a class="button radius" href="<?php echo get_permalink( $get_started_post ); ?>">
-                                    Get Started!
+                                    Book a FREE Intro
                                 </a>
                             </li>
 						<?php endif; ?>
